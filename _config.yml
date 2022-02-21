@@ -10,7 +10,7 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-# theme                  : "minimal-mistakes-jekyll"
+theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
@@ -96,8 +96,8 @@ social:
 # Analytics
 analytics:
   provider               : "google" # false (default), "google", "google-universal", "google-gtag", "custom"
-  google: UA-9434668-3
-    tracking_id          :
+  google: 
+    tracking_id          : "UA-9434668-3"
     anonymize_ip         : # true, false (default)
 
 

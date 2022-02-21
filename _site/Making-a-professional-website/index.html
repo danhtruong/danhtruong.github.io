@@ -1,0 +1,82 @@
+<p>As a student or early-career researcher, you may have seen a trend in professional websites created by your peers. You may have wondered whether or not you, yourself, should make one. In this post, I will give you a couple of reasons why you should make a website and give a tutorial on how to do so using <a href="https://pages.github.com" target="_blank">GitHub Pages</a>.</p>
+
+<h2 id="why-make-a-website">Why make a website?</h2>
+
+<ul>
+  <li>
+    <p>The most prominent reason that I believe in when creating your own website is to be able to share your research, highlight your progress, and advocate for yourself.</p>
+  </li>
+  <li>
+    <p>Your website also serves as an interactive CV that can provide a more visually appealing platform to present yourself.</p>
+  </li>
+  <li>
+    <p>Unlike your CV or other social media websites, you can provide resources to other students or researchers in the form of protocols, code, and data. Importantly, you can share your published papers freely, depending on the policies of your publisher.</p>
+  </li>
+  <li>
+    <p>You can also use your website as a professional history. You can keep track of your research progress and highlight achievements along the way.</p>
+  </li>
+  <li>
+    <p>While websites like LinkedIn and Twitter can be good sources of visibility. They have their own agenda with set templates for expressing yourself. Having your own website will allow complete control of how you are presented. It lets you control your message.</p>
+  </li>
+</ul>
+
+<h2 id="create-your-website">Create your website</h2>
+
+<p>Creating a website using <a href="https://pages.github.com">GitHub Pages</a> is free and also fairly easy. First, you will want to have a <a href="https://github.com" target="_blank">GitHub</a> account, so head over there and create one. Once you have one, it is as easy as creating your own repository. I am going to give you two approaches. In the next steps, we can either create a website from scratch or use Jekyll. Personally, I like Jekyll since it is simpler and has built-in tools for creating content, but others may want to use their own setup. I highly recommend using Jekyll so skip to the <a href="#using-jekyll">Jekyll section</a> if you want to use Jekyll.</p>
+
+<blockquote>
+  <p>Jekyll is a static site generator with built-in support for GitHub Pages and a simplified build process. Jekyll takes Markdown and HTML files and creates a complete static website based on your choice of layouts. Jekyll supports Markdown and Liquid, a templating language that loads dynamic content on your site. For more information, see <a href="https://jekyllrb.com" target="_blank">Jekyll</a>.</p>
+</blockquote>
+
+<h2 id="setup">Setup</h2>
+
+<p><a href="https://github.com/new" target="_blank">Create a new repository</a> in your GitHub profile. In the repository name section, type in <code class="language-plaintext highlighter-rouge">yourusername.github.io</code>, where <code class="language-plaintext highlighter-rouge">yourusername</code> is your username. My username is <code class="language-plaintext highlighter-rouge">danhtruong</code>, so I would type in, <code class="language-plaintext highlighter-rouge">danhtruong.github.io</code>.</p>
+
+<p><img src="/images/Making-a-professional-website/making_a_repo.png" alt="" /></p>
+
+<p>Now you can go on over to your new website and view it. You just need to type in the name of your repository. For me it would be, <code class="language-plaintext highlighter-rouge">danhtruong.github.io</code>.</p>
+
+<p>It is as simple as that. You will want to start setting up an <em>index.html</em> and additional content for your website. Here is a <a href="https://www.w3schools.com/howto/howto_make_a_website.asp">tutorial</a> if you are not familiar with using html. You can add these files to your repository.</p>
+
+<p><img src="/images/Making-a-professional-website/new_repo.png" alt="" /></p>
+
+<h2 id="using-jekyll">Using Jekyll</h2>
+
+<p>I prefer <a href="https://github.com/jekyll/jekyll">Jekyll</a> since it can generate a website for you as well as provide tools for content creation. You can install it using command line, but forking <a href="https://github.com/barryclark/jekyll-now" target="_blank">Jekyll Now</a>, a repository with Jekyll already set up, would be easier. You can follow the <code class="language-plaintext highlighter-rouge">readme.md</code> in this <a href="https://github.com/barryclark/jekyll-now" target="_blank">repostitory</a> or continue below.</p>
+
+<p>Go to the <a href="https://github.com/barryclark/jekyll-now" target="_blank">Jekyll Now</a> page and click on fork to fork the repository to yours. Soon you should have a repository similar to mine.</p>
+
+<p>Edit the <em>config.yml</em> file and add your site name and description. There are also many other possible options that you can edit as well.</p>
+
+<p><img src="/images/Making-a-professional-website/config.png" alt="" /></p>
+
+<p>Let’s create your first blog post. You can edit the file <code class="language-plaintext highlighter-rouge">/_posts/2014-3-3-Hello-World.md</code>.</p>
+
+<p>Alternatively, you can create a new file and type <code class="language-plaintext highlighter-rouge">/_posts/2020-8-28-Hello-World.md</code> into the name section. Add the <a href="https://jekyllrb.com/docs/front-matter/">front matter</a> by typing the following.</p>
+
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Hello, World!</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<p>This section contains predefined variables for your website. By calling <code class="language-plaintext highlighter-rouge">layout: post</code>, you are telling Jekyll that this page uses the <code class="language-plaintext highlighter-rouge">post</code> layout. You can find this specific layout in the <code class="language-plaintext highlighter-rouge">/_layouts/</code>. The variable <code class="language-plaintext highlighter-rouge">title</code> provides the title of the post. Now, you can begin typing our your blog post. You will need to be familiar with markdown but here is a <a href="http://www.jekyllnow.com/Markdown-Style-Guide/" target="_blank">Markdown Cheat Sheet</a> to get you started.</p>
+
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Hello, World!</span>
+<span class="nn">---</span>
+
+Start creating content here!
+
+</code></pre></div></div>
+
+<h2 id="additonal-resources">Additonal Resources</h2>
+
+<ul>
+  <li><a href="https://github.com/barryclark/jekyll-now" target="_blank">Jekyll Now</a></li>
+  <li><a href="https://medium.com/swlh/how-to-host-your-website-on-github-pages-for-free-3302b0fe8956" target="_blank">How to Host Your Website On GitHub Pages For Free</a></li>
+  <li><a href="https://jekyllrb.com/docs/github-pages/" target="_blank">Jekyll</a></li>
+  <li><a href="https://docs.github.com/en/github/working-with-github-pages/setting-up-a-github-pages-site-with-jekyll" target="_blank">Setting up a GitHub Pages site with Jekyll</a></li>
+</ul>
+
