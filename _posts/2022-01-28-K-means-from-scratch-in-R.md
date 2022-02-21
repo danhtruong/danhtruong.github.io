@@ -110,7 +110,7 @@ ggplot(pca_USArrests_df, aes(x = PC1, y = PC2)) +
   theme_classic()
 ```
 
-![](images/k_means_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
 We can already see possible clusters or grouping of states with similar
 statistics. Let’s start with an easy `k` value of `2`. We initialize `k`
@@ -233,7 +233,7 @@ ggplot(pca_USArrests_df, aes(x = PC1, y = PC2,)) +
   theme_classic()
 ```
 
-![](images/k_means_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 As you can see, the clustering is not that great since we have only
 initialized the algorithm and had randomly selected `k` observations as
@@ -354,7 +354,7 @@ ggplot(df, aes(y = ., x = iter)) +
   theme_classic()
 ```
 
-![](images/k_means_files/figure-markdown_github/unnamed-chunk-12-1.png)
+![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-12-1.png)
 
 Using the PCA graph, we can observe how our clusters look after reaching
 the maximum number of iterations.
@@ -370,7 +370,7 @@ ggplot(pca_USArrests_df, aes(x = PC1, y = PC2)) +
   theme_classic()
 ```
 
-![](images/k_means_files/figure-markdown_github/unnamed-chunk-13-1.png)
+![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-13-1.png)
 
 We can also observe the clustering with a scatter plot of two features
 like `UrbanPop` and `Murder`.
@@ -386,7 +386,7 @@ ggplot(USArrests_df, aes(x = UrbanPop, y = Murder,)) +
   theme_classic()
 ```
 
-![](images/k_means_files/figure-markdown_github/unnamed-chunk-14-1.png)
+![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-14-1.png)
 
 Determining the optimal number of clusters
 ------------------------------------------
@@ -411,7 +411,7 @@ pca_USArrests_df <- as.data.frame(pca_USArrests$x) %>%
 ggplot(pca_USArrests_df, aes(x = PC1, y = PC2 )) + geom_point(aes(shape = factor(value), color = factor(value)) ) + facet_wrap(~name) + labs(color  = "Cluster", shape = "Cluster") 
 ```
 
-![](images/k_means_files/figure-markdown_github/unnamed-chunk-15-1.png)
+![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-15-1.png)
 
 Of course we can continue testing additional values of `k`. However, it
 may be more advantageous to determine the optimal `k` value based on the
@@ -442,7 +442,7 @@ ggplot(df, aes(x = X, y = Y)) +
   theme_classic()
 ```
 
-![](images/k_means_files/figure-markdown_github/unnamed-chunk-16-1.png)
+![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-16-1.png)
 
 The optimal `k` look to be either 4 or 5. As you can see, k-means
 clustering is simple and quick. One caveat is choosing the number of

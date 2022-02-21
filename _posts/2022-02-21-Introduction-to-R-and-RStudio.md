@@ -50,7 +50,7 @@ typically done by clicking on the RStudio icon.
 Once you open RStudio, you will see four main panes. Each will contain
 different information. You can see my screen below.
 
-![](images/RStudio.png)
+![]({{ site.baseurl }}/images/RStudio.png)
 
 Starting from the top left pane and going from left to right, we have
 the descriptions of each pane below:
@@ -176,7 +176,7 @@ for a function.
 
     ?sum #Find the R Documentation for sum()
 
-![](images/sum_help.png)
+![]({{ site.baseurl }}/images/sum_help.png)
 
 We can see that `sum()` can return the sum of more than two values.
 
@@ -589,7 +589,7 @@ Let’s make a function that finds the average of a numeric vector.
 Once we have created our function, you will see it under the *Functions*
 section in the Environment tab.
 
-![](images/functions.png)
+![]({{ site.baseurl }}/images/functions.png)
 
 Let’s test our function below.
 
