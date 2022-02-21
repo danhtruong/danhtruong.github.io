@@ -106,7 +106,7 @@ author:
   name             : "Danh Truong"
   avatar           : "/images/170510-Danh-Truong-SL-0004.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : ""
-  location         : ""
+  location         : "Houston, Texas"
   email            :
   links:
     - label: "Email"
@@ -114,7 +114,7 @@ author:
       url: "mailto:dtruong4@mdanderson.org"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
+      url: "https://danhdtruong.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/danhdtruong"
