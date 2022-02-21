@@ -3,6 +3,7 @@ permalink: /about/
 title: "About"
 layout: single
 toc: true
+author_profile: true
 ---
 
 ## Danh D. Truong

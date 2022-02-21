@@ -2,6 +2,8 @@
 layout: single
 title: Useful Websites
 permalink: /useful_websites/
+author_profile: true
+toc: true
 ---
 
 Here are some useful websites that I have found in the past

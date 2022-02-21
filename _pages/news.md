@@ -2,6 +2,8 @@
 title: "News"
 permalink: /news/
 layout: single
+author_profile: true
+toc: true
 ---
 ## 2022
 __February__

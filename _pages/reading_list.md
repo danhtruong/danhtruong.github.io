@@ -2,6 +2,7 @@
 title: Reading List
 layout: single
 toc: true
+author_profile: true
 permalink: /reading_list/
 ---
 

@@ -1,6 +1,10 @@
 main:
   - title: "About"
     url: /about/
+  - title: "Posts by Year"
+    url: /year-archive/
+  - title: "Posts by Tag"
+    url: /tags/
   - title: "News"
     url: /news/
   - title: "Reading List"
