@@ -1,5 +1,9 @@
 main:
   - title: "About"
-    url: /_pages/about/
+    url: /about/
   - title: "News"
-    url: /_pages/news/
+    url: /news/
+  - title: "Reading List"
+    url: /reading_list/
+  - title: "Useful Websites"
+    url: /useful_websites/
