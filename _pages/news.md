@@ -1,6 +1,5 @@
 ---
-layout: page
-title: News
+title: "News"
 permalink: /news/
 ---
 ## 2022
