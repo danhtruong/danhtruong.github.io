@@ -1,6 +1,7 @@
 ---
 title: "News"
 permalink: /news/
+layout: single
 ---
 ## 2022
 __February__

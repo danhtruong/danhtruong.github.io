@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: single
 title: Useful Websites
 permalink: /useful_websites/
 ---

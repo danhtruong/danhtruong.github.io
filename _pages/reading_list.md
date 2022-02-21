@@ -1,6 +1,7 @@
 ---
-layout: page
 title: Reading List
+layout: single
+toc: true
 permalink: /reading_list/
 ---
 
