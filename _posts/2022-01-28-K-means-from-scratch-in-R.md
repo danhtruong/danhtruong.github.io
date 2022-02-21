@@ -2,6 +2,7 @@
 title: "K-means from scratch in R"
 layout: single
 toc: true
+mathjax: true
 tags: bioinformatics tips tutorials machine-learning
 ---
 
