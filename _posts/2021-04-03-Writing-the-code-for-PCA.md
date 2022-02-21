@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: single
+toc: true
 title: Writing the code for PCA
 tags: tutorials R machine-learning
 ---

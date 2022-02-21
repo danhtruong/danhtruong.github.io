@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: Learning R
 tags: list tutorials bioinformatics R
 ---

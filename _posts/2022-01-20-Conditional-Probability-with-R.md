@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: single
+toc: true
 title: Conditional Probability with R
 tags: tutorials R 
 ---

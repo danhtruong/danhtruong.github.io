@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: single
+toc: true
 title: Exploratory Data Analysis in R
 tags: tutorials bioinformatics R machine-learning
 ---

@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: single
+toc: true
 title: Converting Multiple SRA to FASTQ
 tags: tutorials bioinformatics
 ---

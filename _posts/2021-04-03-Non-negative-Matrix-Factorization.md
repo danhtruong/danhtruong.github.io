@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: single
+toc: true
 title: Non-negative Matrix Factorization
 tags: tutorials R machine-learning
 ---

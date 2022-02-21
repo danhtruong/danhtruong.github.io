@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: single
+toc: true
 title: Seurat Guided Clustering Tutorial
 tags: single-cell tutorials bioinformatics R
 ---

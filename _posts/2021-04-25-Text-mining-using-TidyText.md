@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: single
+toc: true
 title: Text mining using TidyText
 tags: machine-learning tutorials R
 ---

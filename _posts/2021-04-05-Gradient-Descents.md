@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: single
+toc: true
 title: Gradient Descents
 tags: tutorials R machine-learning
 ---

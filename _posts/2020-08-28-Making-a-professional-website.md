@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: single
+toc: true
 title: Making a Professional Website
 tags: tutorials tips
 ---

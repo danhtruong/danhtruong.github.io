@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: single
+toc: true
 title: Trajectory Analysis with Diffusion Pseudotime
 tags: single-cell tutorials bioinformatics R
 ---

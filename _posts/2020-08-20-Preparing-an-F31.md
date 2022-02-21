@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: single
+toc: true
 title: Preparing an F31
 tags: tips 
 ---
