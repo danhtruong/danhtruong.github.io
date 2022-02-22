@@ -18,4 +18,4 @@ codes.forEach((code) => {
   countID++;
 }); 
 
-let clipboard = new ClipboardJS('.btn-copy');
+clipboard = new ClipboardJS('.btn-copy');
