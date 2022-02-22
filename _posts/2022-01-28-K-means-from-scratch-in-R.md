@@ -50,6 +50,7 @@ per 100,000 residents in each state for either murder, assault, or rape.
 In addition, the percentage of people living in urban areas is also
 listed.
 
+{% include codeHeader.html %}
 ``` r
 library(ggplot2)
 library(dplyr)
