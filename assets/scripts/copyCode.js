@@ -1,5 +1,5 @@
 // assets/js/post.js
-var codeBlocks = document.querySelectorAll('pre.highlight');
+var codeBlocks = document.querySelectorAll('div.language-r highlighter-rouge');
 
 codeBlocks.forEach(function (codeBlock) {
   var copyButton = document.createElement('button');
