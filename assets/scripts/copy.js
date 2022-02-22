@@ -1,4 +1,4 @@
-let codes = document.querySelectorAll('.highlight > pre > code');
+let codes = document.querySelectorAll('pre.highlight > code');
 let countID = 0;
 codes.forEach((code) => {
 
