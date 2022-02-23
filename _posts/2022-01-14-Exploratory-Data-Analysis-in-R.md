@@ -435,8 +435,11 @@ ggplot(iris_melt, aes(x = Species, y = value, fill = Species)) +
 
 ![]({{ site.baseurl }}/images/EDA_files/figure-markdown_github/unnamed-chunk-25-1.png)
 
-\#Additional Resources - [R for Data Science: Exploratory Data
-Analysis](https://r4ds.had.co.nz/exploratory-data-analysis.html) - [How
+Additional Resources
+--------------------
+- [R for Data Science: Exploratory Data
+Analysis](https://r4ds.had.co.nz/exploratory-data-analysis.html)
+- [How
 to do a t-test or ANOVA for more than one variable at once in
 R](https://statsandr.com/blog/how-to-do-a-t-test-or-anova-for-many-variables-at-once-in-r-and-communicate-the-results-in-a-better-way/#anova)
 - [Application of Student’s t-test, Analysis of Variance, and
