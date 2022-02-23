@@ -14,14 +14,17 @@ The data was deposited at GEO/SRA and is accessible through the GEO data set [GS
 
 Typically, this will be performed using High Performance Computing (HPC) with Platform Load Sharing Facility (or simply LSF), which is a workload management platform, job scheduler, for distributed high performance computing. Your HPC should have most of the modules needed installed for you already. If not, then please find the related-links below. 
 
-
 [The SRA toolkit](https://github.com/ncbi/sra-tools)
+
+## Finding the SRA
 
 For example, to get fastq files for the sample:GSM3405962: RNA-seq, SHSY5Y adipocyte diff 7d; Homo sapiens; RNA-Seq, you would go to the [SRP](https://www.ncbi.nlm.nih.gov/sra?term=SRP140638){:target="_blank"} linked above. 
 
 Go to the corresponding SRA page: [https://www.ncbi.nlm.nih.gov/sra/SRX4774806[accn]](https://www.ncbi.nlm.nih.gov/sra/SRX4774806[accn]){:target="_blank"}
 
 Copy down the appropriate Accession: `SRR7939701`
+
+## Downloading the data
 
 Type the following into the command line to begin downloading your data:
 
@@ -34,11 +37,14 @@ If you wanted to download multiple files, it is recommended to use the `RunSelec
 Here select the samples or Runs that you want to download by clicking on the appropriate checkboxes. Then download the `Accession List` and the `Metadata` if needed.
 
 Depending on the naming convention or format of the `Accession List`, you can download all of the Runs with the following:
+
 ``` sh
 prefetch $(<SRA_Acc_List.txt)
 ```
 
 Make sure you know where the files will be downloaded to or set it up in the options.
+
+## Converting to FASTQ
 
 I use the following bash script for converting multiple SRA to fastq. The script will search through my SRA directory for `.SRA` files and provide these files as the input for `fasterq-dump`
 
