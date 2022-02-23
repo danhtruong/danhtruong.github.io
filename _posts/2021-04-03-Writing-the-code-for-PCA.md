@@ -6,34 +6,25 @@ title: Writing the code for PCA
 tags: tutorials R machine-learning
 ---
 
-
-Principal Component Analysis
-----------------------------
+## Principal Component Analysis
 
 In this post, we will extend what we did in the previous PCA tutorial by
 doing it from scratch in R. We will be focusing on Singular Value
 Decomposition (SVD), which is a tool for matrix factorization. SVD
-states that any matrix $M A^{m n} $ can be decomposed into the
-following:
+states that any matrix $M\in A^{m\times n} $
+can be decomposed into the following:
 
-*M* = *U**Σ**V*<sup>*T*</sup>
+$$M = U\Sigma V^{T}$$
 
-where *U* is an *m* × *m* unitary matrix, *Σ* is a diagonal *m* × *n*
-matrix with non-negative real numbers on the diagonal, and *V* is an
-*n* × *n* unitary matrix. If *M* is real, then *U* and *V* are
-orthogonal matrices, or uncorrelated. *U* and *V* are equal to the
-eigenvectors of *M**M*<sup>*t*</sup> and *M*<sup>*t*</sup>*M*,
-respectively. The entries in *Σ* are singular values of *M*. The number
-of non-zero singular values is equal to the rank of *M*. If you recall,
-the rank of a matrix is defined as the maximum number of linearly
-independent columns in the matrix. As it relates to PCA, these are the
-number of Principal Components.
+where $U$ is an $m\times m$ unitary matrix, $\Sigma$ is a diagonal $m\times n$ matrix with non-negative real numbers on the diagonal, and $V$ is an $n\times n$ unitary matrix. If $M$ is real, then $U$ and $V$ are orthogonal matrices, or uncorrelated. $U$ and $V$ are equal to the eigenvectors of $MM^{t}$ and $M^{t}M$, respectively. The entries in $\Sigma$ are singular values of $M$. The number of non-zero singular values is equal to the rank of $M$
+. If you recall, the rank of a matrix is defined as the maximum number
+of linearly independent columns in the matrix. As it relates to PCA,
+these are the number of Principal Components.
 
-Covariance matrix
------------------
+## Covariance matrix
 
-Performing SVD on the covariance matrix of *M* is essentially PCA. We
-will be using the Iris data set.
+Performing SVD on the covariance matrix of $M$
+is essentially PCA. We will be using the Iris data set.
 
 ``` r
 data(iris)
@@ -42,7 +33,8 @@ D <- data.matrix(iris[,c(1:4)]) #Here we are only taking the first four columns 
 
 The covariance is defined as follows:
 
-$$cov\_{x,y} = \\frac{\\Sigma(x\_{i}-\\overline{x})(y\_{i}-\\overline{y})}{N-1}$$
+$$cov_{x,y} =\frac{\Sigma(x_{i}-\overline{x})(y_{i}-\overline{y})}{N-1}$$
+
 
 First, we will center our data by subtracting each value by the of their
 respective column.
@@ -52,7 +44,7 @@ xcenter = colMeans(D) #Find the mean of the column
 print(xcenter)
 ```
 
-    ## Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
+    ## Sepal.Length  Sepal.Width Petal.Length  Petal.Width
     ##     5.843333     3.057333     3.758000     1.199333
 
 ``` r
@@ -69,8 +61,9 @@ head(D_centered)
     ## [6,]   -0.4433333  0.84266667       -2.058  -0.7993333
 
 We will multiply the transposed form of our matrix by our matrix
-followed dividing by *N* − 1, where N is number of rows. We will compare
-this to the R function `cov()`
+followed dividing by $N-1$
+, where N is number of rows. We will compare this to the R function
+`cov()`
 
 ``` r
 covariance = t(D_centered) %*% (D_centered)
@@ -95,14 +88,14 @@ cov(D_centered)
     ## Petal.Width     0.5162707  -0.1216394    1.2956094   0.5810063
 
 ``` r
-cat('\n Are the values the same:', all(round(cov(D_centered) - covariance, 3) == 0)) 
+cat('\n Are the values the same:', all(round(cov(D_centered) - covariance, 3) == 0))
 ```
 
-    ## 
+    ##
     ##  Are the values the same: TRUE
 
-Next, we will solve for *M**M*<sup>*t*</sup> and *M*<sup>*t*</sup>*M* to
-find *U* and *V*.
+Next, we will solve for $MM^{t}$ and $M^{t}M$ to find $U$ and $V$
+.
 
 ``` r
 MTM <- t(covariance) %*% covariance
@@ -130,10 +123,9 @@ U
     ## [3,]  0.85667061  0.17337266  0.07623608 -0.4798390
     ## [4,]  0.35828920  0.07548102  0.54583143  0.7536574
 
-Note that here we find that *U* and *V* are equivalent. This is a
-special case because we are using the covariance matrix. Now we find the
-singular values *Σ*, which are the square roots of the non-zero
-eigenvalues of *M**M*<sup>*t*</sup> and *M*<sup>*t*</sup>*M*.
+Note that here we find that $U$ and $V$ are equivalent. This is a special case because we are using the
+covariance matrix. Now we find the singular values $\Sigma$, which are the square roots of the non-zero eigenvalues of $MM^{t}$ and $M^{t}M$
+.
 
 ``` r
 sigma <- sqrt(MMT.e$values)
@@ -147,12 +139,12 @@ sigma
     ## [3,] 0.000000 0.0000000 0.0782095 0.00000000
     ## [4,] 0.000000 0.0000000 0.0000000 0.02383509
 
-Singular Value Decomposition
-----------------------------
+## Singular Value Decomposition
 
 Now recall the equation for SVD.
 
-*M* = *U**Σ**V*<sup>*T*</sup>
+$$M = U\Sigma V^{T}$$
+
 
 Now that, we have the decomposed values, we can recompose them using
 matrix multiplication to recover our covariance matrix of the Iris data
@@ -180,10 +172,10 @@ covariance
     ## Petal.Width     0.5162707  -0.1216394    1.2956094   0.5810063
 
 ``` r
-cat('\n Are the values the same:', all(round(M - covariance, 3) == 0)) 
+cat('\n Are the values the same:', all(round(M - covariance, 3) == 0))
 ```
 
-    ## 
+    ##
     ##  Are the values the same: TRUE
 
 PCA is an orthogonal projection. To generate, we project our
@@ -202,8 +194,7 @@ head(pc)
     ## [5,] -2.728717 -0.3267545  0.09007924 -0.061258593
     ## [6,] -2.280860 -0.7413304  0.16867766 -0.024200858
 
-Comparing to prcomp()
----------------------
+## Comparing to prcomp()
 
 ``` r
 pca_prcomp <- prcomp(D_centered, center = F)
@@ -222,31 +213,29 @@ head(pca_prcomp$x)
 cat('\n Comparing our calculations to the R function prcomp:\n\n')
 ```
 
-    ## 
+    ##
     ##  Comparing our calculations to the R function prcomp:
 
 ``` r
-cat('\n Do we get the same rotation matrix:',  all(round(pca_prcomp$rotation - V, 3) == 0)) 
+cat('\n Do we get the same rotation matrix:',  all(round(pca_prcomp$rotation - V, 3) == 0))
 ```
 
-    ## 
+    ##
     ##  Do we get the same rotation matrix: FALSE
 
 ``` r
-cat('\n Are the principal components the same:', all(round(pca_prcomp$x - pc, 3) == 0)) 
+cat('\n Are the principal components the same:', all(round(pca_prcomp$x - pc, 3) == 0))
 ```
 
-    ## 
+    ##
     ##  Are the principal components the same: FALSE
 
 It looks like something is wrong with our. Upon closer inspection, it
-appears the third column has the opposite sign, which is a multiple of
- − 1. Recall that *A**u* = *λ**u*, where *A* is a vector, *u* is the
-eigenvector, and *l**a**m**b**d**a* is the eigenvalue.
+appears the third column has the opposite sign, which is a multiple of $-1$. Recall that $Au =\lambda u$, where $A$ is a vector, $u$ is the eigenvector, and $lambda$
+is the eigenvalue.
 
-If *A**u* = *λ**u*, then
-*A*(*k**u*) = *A**k**v* = *k**λ**u* = *λ*(*k**u*). Therefore, any
-multiple of *u* is also an eigenvector of *A*.
+If $Au =\lambda u$, then $A(ku) = Akv = k\lambda u =\lambda (ku)$. Therefore, any multiple of $u$ is also an eigenvector of $A$
+.
 
 ``` r
 V
@@ -274,25 +263,24 @@ pc[,3]  <- -pc[,3]
 cat('\n Comparing our calculations to the R function prcomp:\n\n')
 ```
 
-    ## 
+    ##
     ##  Comparing our calculations to the R function prcomp:
 
 ``` r
-cat('\n Do we get the same rotation matrix:',  all(round(pca_prcomp$rotation - V, 3) == 0)) 
+cat('\n Do we get the same rotation matrix:',  all(round(pca_prcomp$rotation - V, 3) == 0))
 ```
 
-    ## 
+    ##
     ##  Do we get the same rotation matrix: TRUE
 
 ``` r
-cat('\n Are the principal components the same:', all(round(pca_prcomp$x - pc, 3) == 0)) 
+cat('\n Are the principal components the same:', all(round(pca_prcomp$x - pc, 3) == 0))
 ```
 
-    ## 
+    ##
     ##  Are the principal components the same: TRUE
 
-Additional Resources
---------------------
+## Additional Resources
 
 -   [PCA
     Analysis](https://www.datacamp.com/community/tutorials/pca-analysis-r)

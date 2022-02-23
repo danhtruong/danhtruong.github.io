@@ -7,8 +7,7 @@ tags: tutorials R machine-learning
 ---
 
 
-Non-negative Matrix Factorization
----------------------------------
+## Non-negative Matrix Factorization
 
 In this post, I will be discussing Non-negative Matrix Factorization
 (NMF). NMF is a low-rank approximation algorithm that discovers latent
@@ -21,59 +20,52 @@ nature.
 
 NMF is formally defined as:
 
-*V* ≈ *W**H*
+$$V\approx{WH}$$
 
-where *V* is a non-negative matrix and both *W* and *H* are unique and
-non-negative matrices. In other words, the matrix *V* is factorized into
-two matrices *W* and *H*, where *W* is the features matrix or the basis
-and *H* is the coefficient matrix. Typically, this means that *H*
-represents a coordinate system that uses *W* to reconstruct *V*. We can
-consider that *V* is a linear combination of column vectors of *W* using
-the coordinate system in *H*, *v*<sub>*i*</sub> = *W**h*<sub>*i*</sub>.
+where $V$ is a non-negative matrix and both $W$ and $H$ are unique and non-negative matrices. In other words, the matrix $V$ is factorized into two matrices $W$ and $H$, where $W$ is the features matrix or the basis and $H$ is the coefficient matrix. Typically, this means that $H$ represents a coordinate system that uses $W$ to reconstruct $V$. We can consider that $V$ is a linear combination of column vectors of $W$ using the coordinate system in $H$, $v_{i} = Wh_{i}$.
 
-Solving for NMF
----------------
+## Solving for NMF
 
 Here, I will describe two algorithms to solve for NMF using iterative
-updates of *W* and *H*. First, we will consider the cost function. A
-cost function is a function that quantifies or measures the error
-between the predicted values and the expected values. The Mean Squared
-Error (MSE), or L2 loss is one of the most popular cost functions in
-linear regressions. Given an linear equation *y* = *m**x* + *b*, MSE is:
+updates of $W$ and $H$. First, we will consider the cost function. A cost function is a
+function that quantifies or measures the error between the predicted
+values and the expected values. The Mean Squared Error (MSE), or L2 loss
+is one of the most popular cost functions in linear regressions. Given
+an linear equation $y = mx + b$
+, MSE is:
 
-$$MSE = \\frac{1}{N}\\Sigma\_{i=1}^{n}(y\_{i}-(mx\_{i}+b))^{2} $$
+$$MSE =\frac{1}{N}\Sigma_{i=1}^{n}(y_{i}-(mx_{i}+b))^{2}$$
+
 
 For the cost function in NMF, we use a similar function called the
 Frobenius Norm. It is defined as:
 
-$$\|\|A\|\|\_{F} = \\sqrt{\\Sigma\_{i=1}^{m}\\Sigma\_{j=1}^{n} \|a\_{ij}\|^{2}}$$
+$$||A||_{F} =\sqrt{\Sigma_{i=1}^{m}\Sigma_{j=1}^{n} |a_{ij}|^{2}}$$
 
 In the case of NMF, we are using the square of the Forbenius norm to
-measure how good of an approximation *W**H* is for *V*.
+measure how good of an approximation $WH$ is for $V$.
 
-\|\|*V* − *W**H*\|\|<sub>*F*</sub><sup>2</sup> = *Σ*<sub>*i*, *j*</sub>(*V* − *W**H*)<sub>*i**j*</sub><sup>2</sup>
+$$||V - WH||_{F}^{2} =\Sigma_{i,j}(V - WH)^{2}_{ij}$$
 
-Optimization
-------------
 
-We can see that as *W**H* approaches *V*, then the equation will slowly
-converge to zero. Therefore, the optimization can be defined as the
-following:
+## Optimization
 
-Minimize \|\|*V* − *W**H*\|\|<sub>*F*</sub><sup>2</sup> with respect to
-*W* and *H*, subject to the constraints *W*, *H* ≥ 0
+We can see that as $WH$ approaches $V$
+, then the equation will slowly converge to zero. Therefore, the
+optimization can be defined as the following:
 
+Minimize $||V - WH||_{F}^{2}$ with respect to $W$ and $H$, subject to the constraints $W,H\ge 0$
 In the paper by Lee & Seung, they introduced the multiplicative update
 rule to solve for NMF. Please see their original paper for details on
 the proof. Essentially the update causes the function value to be
 non-increasing to converge to zero.
 
-$$H\_{ik} \\leftarrow H\_{ik}\\frac{(W^{T}V)\_{ik}}{(W^{T}WH)\_{ik}}$$
+$$H_{ik}\leftarrow H_{ik}\frac{(W^{T}V)_{ik}}{(W^{T}WH)_{ik}}$$
 
-$$W\_{kj} \\leftarrow W\_{kj}\\frac{(VH^{T})\_{kj}}{(WHH^{T})\_{kj}}$$
+$$W_{kj}\leftarrow W_{kj}\frac{(VH^{T})_{kj}}{(WHH^{T})_{kj}}$$
 
-Multiplicative Update Rule
---------------------------
+
+## Multiplicative Update Rule
 
 Here we will implement NMF using the multiplicative update rule. To get
 started, make sure you have installed both
@@ -84,11 +76,10 @@ benchmark our work.
 
 Here I write a function to solve for NMF using the multiplicative update
 rule. I added a `delta` variable to the denominator update rule to
-prevent division by zero. `K` specifies the column length of *W* and the
-row length of *H*. `K` can also be considered as the number of hidden
-features we are discovering in *V*. `K` is less than *n* in a *n* × *m*
-matrix. After iterating for `x` number of `steps`, the function returns
-a `list` containing `W` and `H` for *W* and *H* respectively.
+prevent division by zero. `K` specifies the column length of $W$ and the row length of $H$. `K` can also be considered as the number of hidden features we are
+discovering in $V$. `K` is less than $n$ in a $n\times m$ matrix. After iterating for `x` number of `steps`, the function returns
+a `list` containing `W` and `H` for $W$ and $H$
+respectively.
 
 ``` r
 nmf_mu <- function(R, K, delta = 0.001, steps = 5000){
@@ -118,7 +109,8 @@ nmf_mu <- function(R, K, delta = 0.001, steps = 5000){
 }
 ```
 
-Let’s initialize a random *n* × *m* matrix and test our function.
+Let’s initialize a random $n\times m$
+matrix and test our function.
 
 ``` r
 require(NMF)
@@ -140,17 +132,24 @@ require(NMF)
     ## NMF
     ## ')
 
+    ##
+    ## Attaching package: 'NMF'
+
+    ## The following object is masked from 'package:rmarkdown':
+    ##
+    ##     run
+
 ``` r
 R <- rmatrix(5,6)
 R
 ```
 
-    ##            [,1]      [,2]       [,3]      [,4]        [,5]      [,6]
-    ## [1,] 0.09905736 0.2478429 0.04375564 0.1950761 0.405054093 0.2530112
-    ## [2,] 0.54500282 0.2224704 0.18141923 0.8524384 0.002520487 0.6324748
-    ## [3,] 0.32894659 0.9509463 0.85749386 0.2958201 0.364320588 0.7016630
-    ## [4,] 0.33408402 0.7937827 0.74916835 0.9226052 0.408974110 0.9003786
-    ## [5,] 0.29078914 0.5180659 0.36904535 0.6418668 0.395588249 0.4618191
+    ##           [,1]        [,2]      [,3]       [,4]       [,5]       [,6]
+    ## [1,] 0.2654792 0.999808523 0.2205756 0.37758622 0.60422780 0.47795002
+    ## [2,] 0.3483290 0.914457421 0.9823033 0.17167403 0.03328926 0.76176664
+    ## [3,] 0.2151737 0.009164434 0.7778007 0.67275036 0.07443182 0.18584774
+    ## [4,] 0.8040504 0.691110502 0.5477322 0.63334282 0.30461300 0.07827993
+    ## [5,] 0.3298089 0.229627712 0.4505342 0.09935264 0.29061525 0.79473661
 
 ``` r
 nmf_mu_results <- nmf_mu(R)
@@ -163,12 +162,12 @@ cat('\fMatrix W is:\n')
 print(nmf_mu_results$W)
 ```
 
-    ##              [,1]       [,2]       [,3]         [,4]         [,5]
-    ## [1,] 2.691750e-01 0.01385374 0.06198269 1.836271e-02 6.716942e-01
-    ## [2,] 4.930224e-01 1.05188609 0.01643810 4.243030e-04 6.268145e-18
-    ## [3,] 1.161688e-01 0.00583856 1.24543959 2.767930e-06 7.984387e-05
-    ## [4,] 4.261867e-03 0.28319823 0.97779889 8.984428e-01 4.426755e-02
-    ## [5,] 8.123287e-06 0.52221786 0.41160731 1.914287e-02 4.752637e-01
+    ##              [,1]         [,2]         [,3]         [,4]         [,5]
+    ## [1,] 1.401996e-01 1.031005e+00 4.888448e-01 1.009283e-01 5.907953e-16
+    ## [2,] 1.352905e+00 8.450852e-04 6.288241e-03 3.374402e-02 3.885390e-01
+    ## [3,] 1.338529e-02 6.028721e-43 1.814912e-01 9.011644e-01 2.400931e-01
+    ## [4,] 1.584792e-06 7.858847e-01 2.635584e-29 3.616356e-01 6.726390e-01
+    ## [5,] 3.395663e-01 1.250900e-07 6.931389e-01 1.149180e-12 3.679404e-01
 
 ``` r
 cat('Matrix H is:\n')
@@ -180,12 +179,18 @@ cat('Matrix H is:\n')
 print(nmf_mu_results$H)
 ```
 
-    ##              [,1]         [,2]         [,3]         [,4]         [,5]      [,6]
-    ## [1,] 2.954934e-01 8.303074e-02 5.591606e-05 0.0003950417 6.819028e-21 0.4884581
-    ## [2,] 3.744435e-01 1.598566e-01 1.614739e-01 0.8065089938 5.775985e-24 0.3632584
-    ## [3,] 2.331770e-01 7.540462e-01 6.879758e-01 0.2341713079 2.928191e-01 0.5159816
-    ## [4,] 1.958999e-12 5.597541e-05 3.298071e-02 0.5048889321 1.071230e-01 0.3169910
-    ## [5,] 9.893344e-09 2.608269e-01 1.726926e-13 0.2377586707 5.721401e-01 0.1143221
+    ##              [,1]         [,2]         [,3]         [,4]         [,5]
+    ## [1,] 3.237081e-10 6.747615e-01 5.836394e-01 4.297091e-02 2.210281e-02
+    ## [2,] 2.569625e-01 8.777521e-01 8.235903e-09 2.931030e-01 3.883205e-01
+    ## [3,] 2.220118e-09 5.544948e-06 1.347266e-01 1.167679e-11 4.078395e-01
+    ## [4,] 3.898739e-12 3.972138e-08 7.117763e-01 6.837224e-01 7.378500e-13
+    ## [5,] 8.943226e-01 5.006893e-04 4.306573e-01 2.303535e-01 6.962892e-32
+    ##              [,6]
+    ## [1,] 5.256046e-01
+    ## [2,] 2.760492e-10
+    ## [3,] 8.262573e-01
+    ## [4,] 7.389619e-07
+    ## [5,] 1.158574e-01
 
 Let’s see if we can reconstruct our original matrix and compare it to
 the `nmf` function.
@@ -194,26 +199,25 @@ the `nmf` function.
 R
 ```
 
-    ##            [,1]      [,2]       [,3]      [,4]        [,5]      [,6]
-    ## [1,] 0.09905736 0.2478429 0.04375564 0.1950761 0.405054093 0.2530112
-    ## [2,] 0.54500282 0.2224704 0.18141923 0.8524384 0.002520487 0.6324748
-    ## [3,] 0.32894659 0.9509463 0.85749386 0.2958201 0.364320588 0.7016630
-    ## [4,] 0.33408402 0.7937827 0.74916835 0.9226052 0.408974110 0.9003786
-    ## [5,] 0.29078914 0.5180659 0.36904535 0.6418668 0.395588249 0.4618191
+    ##           [,1]        [,2]      [,3]       [,4]       [,5]       [,6]
+    ## [1,] 0.2654792 0.999808523 0.2205756 0.37758622 0.60422780 0.47795002
+    ## [2,] 0.3483290 0.914457421 0.9823033 0.17167403 0.03328926 0.76176664
+    ## [3,] 0.2151737 0.009164434 0.7778007 0.67275036 0.07443182 0.18584774
+    ## [4,] 0.8040504 0.691110502 0.5477322 0.63334282 0.30461300 0.07827993
+    ## [5,] 0.3298089 0.229627712 0.4505342 0.09935264 0.29061525 0.79473661
 
 ``` r
 nmf_mu_results$W %*% nmf_mu_results$H
 ```
 
-    ##            [,1]      [,2]       [,3]      [,4]        [,5]      [,6]
-    ## [1,] 0.09917982 0.2464991 0.04550027 0.1947663 0.404419944 0.2511054
-    ## [2,] 0.54338978 0.2214821 0.18120271 0.8526139 0.004858843 0.6315435
-    ## [3,] 0.32692123 0.9497187 0.85778165 0.2964213 0.364734438 0.7014984
-    ## [4,] 0.33530133 0.7945269 0.74806260 0.9215148 0.407889290 0.8993411
-    ## [5,] 0.29152086 0.5178142 0.36813176 0.6402231 0.394494552 0.4624870
+    ##           [,1]        [,2]      [,3]       [,4]       [,5]       [,6]
+    ## [1,] 0.2649296 0.999570717 0.2195248 0.37722203 0.60282936 0.47760123
+    ## [2,] 0.3476964 0.913824594 0.9818012 0.17095611 0.03279576 0.76130392
+    ## [3,] 0.2147207 0.009153129 0.7770892 0.67202773 0.07431513 0.18481102
+    ## [4,] 0.8034991 0.690149862 0.5470814 0.63254828 0.30517519 0.07793128
+    ## [5,] 0.3290575 0.229314422 0.4500247 0.09934785 0.29019484 0.79381727
 
-Comparing to nmf()
-------------------
+## Comparing to nmf()
 
 We get the same results using the `nmf` function with the `lee` method.
 
@@ -222,15 +226,14 @@ nmf <- nmf(R, dim(R)[1], method = 'lee')
 basis(nmf) %*% coefficients(nmf)
 ```
 
-    ##            [,1]      [,2]       [,3]      [,4]        [,5]      [,6]
-    ## [1,] 0.09924246 0.2475790 0.04434053 0.1949551 0.405163397 0.2530105
-    ## [2,] 0.54497749 0.2223666 0.18147312 0.8523970 0.007434532 0.6325049
-    ## [3,] 0.32893939 0.9509209 0.85750687 0.2958630 0.364292099 0.7016847
-    ## [4,] 0.33413698 0.7937349 0.74925030 0.9226050 0.409027875 0.9003006
-    ## [5,] 0.29071181 0.5183639 0.36875245 0.6419320 0.395366817 0.4618959
+    ##           [,1]        [,2]      [,3]       [,4]       [,5]       [,6]
+    ## [1,] 0.2654815 0.999785218 0.2205801 0.37758346 0.60426373 0.47794145
+    ## [2,] 0.3482878 0.914442520 0.9822751 0.17162950 0.03560715 0.76172497
+    ## [3,] 0.2151834 0.009286328 0.7778134 0.67275913 0.07408714 0.18590587
+    ## [4,] 0.8040623 0.691129518 0.5477324 0.63335313 0.30454127 0.07831037
+    ## [5,] 0.3298253 0.229725799 0.4505534 0.09936135 0.29043154 0.79476070
 
-Stochastic Gradient Descent Method
-----------------------------------
+## Stochastic Gradient Descent Method
 
 Now we will take a look at another method of implementing NMF. This one
 is called Stochastic Gradient Descent (SGD). A gradient descent is a
@@ -243,39 +246,30 @@ or lower, solving for the feature variables, and finally updating each
 feature. We also add a regularization term in the cost function to
 control for over fitting.
 
-\|\|*V* − *W**H*\|\|<sub>*F*</sub><sup>2</sup> = *Σ*<sub>*i*, *j*</sub>(*V* − *W**H*)<sub>*i**j*</sub><sup>2</sup>
+$$||V - WH||_{F}^{2} =\Sigma_{i,j}(V - WH)^{2}_{ij}$$
 
-*e*<sub>*i**j*</sub><sup>2</sup> = *Σ*<sub>*i*, *j*</sub>(*v*<sub>*i**j*</sub> − *v̂*<sub>*i**j*</sub>)<sup>2</sup> = (*v*<sub>*i**j*</sub> − *Σ*<sub>*k* = 1</sub><sup>*K*</sup>*w*<sub>*i**k*</sub>*h*<sub>*k**j*</sub>)<sup>2</sup>
+$$e_{ij}^{2} =\Sigma_{i,j}(v_{ij}-\hat v_{ij})^{2} = (v_{ij} -\Sigma_{k=1}^{K} w_{ik}h_{kj})^{2}$$
 
-*e*<sub>*i**j*</sub><sup>2</sup> = (*v*<sub>*i**j*</sub> − *Σ*<sub>*k* = 1</sub><sup>*K*</sup>*w*<sub>*i**k*</sub>*h*<sub>*k**j*</sub>)<sup>2</sup> + *λ**Σ*<sub>*k* = 1</sub><sup>*K*</sup>(\|\|*W*\|\|<sup>2</sup> + \|\|*H*\|\|<sup>2</sup>)
+$$e_{ij}^{2}  = (v_{ij} -\Sigma_{k=1}^{K}w_{ik}h_{kj})^{2} +\lambda\Sigma_{k=1}^{K}(||W||^{2} + ||H||^{2})$$
+ $\lambda$ is used to control the magnitudes of $w$ and $h$ such that they would provide a good approximation of $v$. We will update each feature with each sample. We choose a small $\lambda$
+, such as 0.01. The update is given by the equations below:
 
-*λ* is used to control the magnitudes of *w* and *h* such that they
-would provide a good approximation of *v*. We will update each feature
-with each sample. We choose a small *λ*, such as 0.01. The update is
-given by the equations below:
+$$w_{ik}\leftarrow w_{ik} -\eta\frac{\partial}{\partial w_{ik}}e_{ij}^{2}$$
 
-$$w\_{ik} \\leftarrow w\_{ik} - \\eta \\frac{\\partial}{\\partial w\_{ik}}e\_{ij}^{2}$$
+$$h_{kj}\leftarrow h_{kj} -\eta\frac{\partial}{\partial h_{kj}}e_{ij}^{2}$$
+ $\eta$ is the learning rate and modifies the magnitude that we update the
+features. We first solve for $\frac{\partial}{\partial h_{kj}}e_{ij}^{2}$.
 
-$$h\_{kj} \\leftarrow h\_{kj} - \\eta \\frac{\\partial}{\\partial h\_{kj}}e\_{ij}^{2}$$
+Using the chain rule, $\frac{\partial}{\partial h_{kj}}(v_{ij} -\Sigma_{k=1}^{K}w_{ik}h_{kj}) =\frac{\partial u^{2}}{\partial v}\frac{\partial u}{\partial v}$, where $u = (v_{ij} -\Sigma_{k=1}^{K}w_{ik}h_{kj}) and\frac{\partial u^{2}}{\partial v} = 2u$ $$\frac{\partial}{\partial h_{kj}}e_{ij}^{2} = 2(v_{ij} -\Sigma_{k=1}^{K}w_{ik}h_{kj})\frac{\partial}{\partial h_{kj}}(v_{ij} -\Sigma_{k=1}^{K}w_{ik}h_{kj}) + 2\lambda h_{kj} $$
 
-*η* is the learning rate and modifies the magnitude that we update the
-features. We first solve for
-$\\frac{\\partial}{\\partial h\_{kj}}e\_{ij}^{2}$.
+$$\frac{\partial}{\partial h_{kj}}e_{ij}^{2} = -2e_{ij}w_{ik} + 2\lambda h_{kj} $$
 
-Using the chain rule,
-$\\frac{\\partial}{\\partial h\_{kj}}(v\_{ij} - \\Sigma\_{k=1}^{K}w\_{ik}h\_{kj}) = \\frac{\\partial u^{2}}{\\partial v} \\frac{\\partial u}{\\partial v}$,
-where
-$u = (v\_{ij} - \\Sigma\_{k=1}^{K}w\_{ik}h\_{kj}) and \\frac{\\partial u^{2}}{\\partial v} = 2u$
+The final update rules for both $W$ and $H$:
 
-$$ \\frac{\\partial}{\\partial h\_{kj}}e\_{ij}^{2} = 2(v\_{ij} - \\Sigma\_{k=1}^{K}w\_{ik}h\_{kj}) \\frac{\\partial}{\\partial h\_{kj}}(v\_{ij} - \\Sigma\_{k=1}^{K}w\_{ik}h\_{kj}) + 2\\lambda h\_{kj} $$
+$$\frac{\partial}{\partial h_{kj}}e_{ij}^{2} = -2e_{ij}w_{ik} + 2\lambda h_{kj} $$
 
-$$ \\frac{\\partial}{\\partial h\_{kj}}e\_{ij}^{2} = -2e\_{ij}w\_{ik} + 2\\lambda h\_{kj} $$
+$$\frac{\partial}{\partial w_{ik}}e_{ij}^{2} = -2e_{ij}h + 2\lambda w_{ik} $$
 
-The final update rules for both *W* and *H*:
-
-$$ \\frac{\\partial}{\\partial h\_{kj}}e\_{ij}^{2} = -2e\_{ij}w\_{ik} + 2\\lambda h\_{kj} $$
-
-$$ \\frac{\\partial}{\\partial w\_{ik}}e\_{ij}^{2} = -2e\_{ij}h + 2\\lambda w\_{ik} $$
 
 ``` r
 frob_norm <- function(M){
@@ -294,7 +288,7 @@ nmf_sgd <- function(A,steps = 50000, lam = 1e-2, lr = 1e-3){
   W <- rmatrix(N,K)
   H <- rmatrix(K,M)
   for (step in 1:steps){
-    R =  A - W %*% H 
+    R =  A - W %*% H
     dW = R %*% t(H) - W*lam
     dH = t(W) %*% R - H*lam
     W = W + lr * dW
@@ -314,12 +308,12 @@ nmf_sgd_results <- nmf_sgd(R)
 R
 ```
 
-    ##            [,1]      [,2]       [,3]      [,4]        [,5]      [,6]
-    ## [1,] 0.09905736 0.2478429 0.04375564 0.1950761 0.405054093 0.2530112
-    ## [2,] 0.54500282 0.2224704 0.18141923 0.8524384 0.002520487 0.6324748
-    ## [3,] 0.32894659 0.9509463 0.85749386 0.2958201 0.364320588 0.7016630
-    ## [4,] 0.33408402 0.7937827 0.74916835 0.9226052 0.408974110 0.9003786
-    ## [5,] 0.29078914 0.5180659 0.36904535 0.6418668 0.395588249 0.4618191
+    ##           [,1]        [,2]      [,3]       [,4]       [,5]       [,6]
+    ## [1,] 0.2654792 0.999808523 0.2205756 0.37758622 0.60422780 0.47795002
+    ## [2,] 0.3483290 0.914457421 0.9823033 0.17167403 0.03328926 0.76176664
+    ## [3,] 0.2151737 0.009164434 0.7778007 0.67275036 0.07443182 0.18584774
+    ## [4,] 0.8040504 0.691110502 0.5477322 0.63334282 0.30461300 0.07827993
+    ## [5,] 0.3298089 0.229627712 0.4505342 0.09935264 0.29061525 0.79473661
 
 The reconstructed method using our NMF function looks like this:
 
@@ -327,27 +321,26 @@ The reconstructed method using our NMF function looks like this:
 nmf_sgd_results[[1]] %*% t(nmf_sgd_results[[2]])
 ```
 
-    ##            [,1]      [,2]       [,3]      [,4]        [,5]      [,6]
-    ## [1,] 0.09863228 0.2473362 0.04798037 0.1964412 0.397647806 0.2489619
-    ## [2,] 0.53861011 0.2248965 0.18254488 0.8479491 0.005006116 0.6281894
-    ## [3,] 0.32577982 0.9463503 0.85143306 0.2996603 0.363407073 0.6991135
-    ## [4,] 0.33856887 0.7905435 0.74707837 0.9176033 0.409385845 0.8949819
-    ## [5,] 0.28771615 0.5155300 0.36740090 0.6363319 0.390869158 0.4669974
+    ##           [,1]       [,2]      [,3]      [,4]       [,5]      [,6]
+    ## [1,] 0.2681854 0.99401198 0.2227126 0.3749699 0.59870008 0.4760952
+    ## [2,] 0.3487419 0.90904861 0.9762124 0.1742213 0.03726270 0.7588021
+    ## [3,] 0.2174286 0.01242527 0.7720973 0.6657916 0.07389233 0.1857447
+    ## [4,] 0.7956266 0.68896989 0.5468757 0.6309005 0.30421298 0.0813123
+    ## [5,] 0.3261383 0.23288393 0.4499075 0.1006391 0.28742367 0.7868103
 
 As you can see, it is a near approximation of the original matrix. In
 another post, I will go into detail the differences between each
 dimensional reduction technique. See below for more information on NMF.
 
-Additional Resources
---------------------
+## Additional Resources
 
--[Algorithms for non-negative matrix
+\-[Algorithms for non-negative matrix
 factorization](https://papers.nips.cc/paper/1861-algorithms-for-non-negative-matrix-factorization.pdf)
 
--[Non-negative matrix
+\-[Non-negative matrix
 factorization](https://github.com/hpark3910/nonnegative-matrix-factorization)
 
--[Non-negative matrix
+\-[Non-negative matrix
 factorization](https://www.almoststochastic.com/2013/06/nonnegative-matrix-factorization.html)
 -[NMF from scratch using
 SGD](https://github.com/carriexu24/NMF-from-scratch-using-SGD) -[Python
