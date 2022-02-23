@@ -5,7 +5,6 @@ mathjax: true
 title: Writing the code for PCA
 tags: tutorials R machine-learning
 ---
-
 ## Principal Component Analysis
 
 In this post, we will extend what we did in the previous PCA tutorial by
@@ -94,14 +93,12 @@ cat('\n Are the values the same:', all(round(cov(D_centered) - covariance, 3) ==
     ##
     ##  Are the values the same: TRUE
 
-Next, we will solve for $MM^{t}$ and $M^{t}M$ to find $U$ and $V$
-.
+Next, we will solve for $MM^{t}$ and $M^{t}M$ to find $U$ and $V$.
 
 ``` r
 MTM <- t(covariance) %*% covariance
 MTM.e <- eigen(MTM)
-V <- MTM.e$vectors
-V
+V <- MTM.e$vectors.
 ```
 
     ##             [,1]        [,2]        [,3]       [,4]
@@ -113,8 +110,7 @@ V
 ``` r
 MMT <- covariance %*% t(covariance)
 MMT.e <- eigen(MMT)
-U <- MMT.e$vectors
-U
+U <- MMT.e$vectors.
 ```
 
     ##             [,1]        [,2]        [,3]       [,4]
@@ -124,8 +120,7 @@ U
     ## [4,]  0.35828920  0.07548102  0.54583143  0.7536574
 
 Note that here we find that $U$ and $V$ are equivalent. This is a special case because we are using the
-covariance matrix. Now we find the singular values $\Sigma$, which are the square roots of the non-zero eigenvalues of $MM^{t}$ and $M^{t}M$
-.
+covariance matrix. Now we find the singular values $\Sigma$, which are the square roots of the non-zero eigenvalues of $MM^{t}$ and $M^{t}M$.
 
 ``` r
 sigma <- sqrt(MMT.e$values)
@@ -151,8 +146,7 @@ matrix multiplication to recover our covariance matrix of the Iris data
 set.
 
 ``` r
-M <- U %*% sigma %*% t(V)
-M
+M <- U %*% sigma %*% t(V).
 ```
 
     ##            [,1]       [,2]       [,3]       [,4]
@@ -234,11 +228,9 @@ It looks like something is wrong with our. Upon closer inspection, it
 appears the third column has the opposite sign, which is a multiple of $-1$. Recall that $Au =\lambda u$, where $A$ is a vector, $u$ is the eigenvector, and $lambda$
 is the eigenvalue.
 
-If $Au =\lambda u$, then $A(ku) = Akv = k\lambda u =\lambda (ku)$. Therefore, any multiple of $u$ is also an eigenvector of $A$
-.
+If $Au =\lambda u$, then $A(ku) = Akv = k\lambda u =\lambda (ku)$. Therefore, any multiple of $u$ is also an eigenvector of $A$.
 
-``` r
-V
+``` r.
 ```
 
     ##             [,1]        [,2]        [,3]       [,4]
