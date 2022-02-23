@@ -11,19 +11,17 @@ be used to cluster a set of observations based on similarity between the
 observations. K-means is one of the most popular clustering technique
 and it is quite simple to understand.
 
-K-means clustering algorithm
-----------------------------
+## K-means clustering algorithm
 
 The goal of this algorithm is to the find the optimal division of `n`
 observations into `k` clusters, so that the total squared distance of
 the group members to the cluster centroid is minimized.
 
-*W*(*C*<sub>*k*</sub>) = *Σ*<sub>*x*<sub>*i*</sub> ∈ *C*<sub>*k*</sub></sub>(*x*<sub>*i*</sub> − *μ*<sub>*k*</sub>)<sup>2</sup>
+$$W(C_k) =\Sigma_{x_i\in C_k}(x_i-\mu_k)^2$$
 
--   *x*<sub>*i*</sub> is an observation assigned to cluster
-    *C*<sub>*k*</sub>
--   *μ*<sub>*k*</sub> is the mean value of all observations assigned to
-    cluster *C*<sub>*k*</sub> (i.e, the centroid)
+
+ - $x_i$ is an observation assigned to cluster $C_k$
+ - $\mu_k$ is the mean value of all observations assigned to cluster $C_k$ (i.e, the centroid)
 
 The K-means algorithm attempts to do the follow:
 
@@ -41,8 +39,7 @@ The K-means algorithm attempts to do the follow:
     iterations are reached or the observations no longer assigned to
     another cluster.
 
-Computing k-means Clustering
-----------------------------
+## Computing k-means Clustering
 
 We can develop a simple K-means function using the above algorithm. Here
 we have a data set `USArrests`, which contains statistics for arrests
@@ -50,27 +47,26 @@ per 100,000 residents in each state for either murder, assault, or rape.
 In addition, the percentage of people living in urban areas is also
 listed.
 
-
 ``` r
 library(ggplot2)
 library(dplyr)
 ```
 
-    ## 
+    ##
     ## Attaching package: 'dplyr'
 
     ## The following objects are masked from 'package:stats':
-    ## 
+    ##
     ##     filter, lag
 
     ## The following objects are masked from 'package:base':
-    ## 
+    ##
     ##     intersect, setdiff, setequal, union
 
 ``` r
 library(tidyr)
 
-data("USArrests")  
+data("USArrests")
 head(USArrests)
 ```
 
@@ -104,14 +100,14 @@ representation of the graph.
 pca_USArrests <- prcomp(USArrests_scaled, scale. = F)
 pca_USArrests_df <- as.data.frame(pca_USArrests$x) %>%
   dplyr::select(PC1, PC2) %>%
-  cbind(States = rownames(USArrests)) 
+  cbind(States = rownames(USArrests))
 
-ggplot(pca_USArrests_df, aes(x = PC1, y = PC2)) + 
-  geom_text(aes(label = States)) + 
+ggplot(pca_USArrests_df, aes(x = PC1, y = PC2)) +
+  geom_text(aes(label = States)) +
   theme_classic()
 ```
 
-![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![]({{ site.baseurl }}/images/k_means/unnamed-chunk-3-1.png)
 
 We can already see possible clusters or grouping of states with similar
 statistics. Let’s start with an easy `k` value of `2`. We initialize `k`
@@ -120,13 +116,13 @@ and select for centroids.
 ``` r
 k = 2
 centroids = sample.int(dim(USArrests_scaled)[1], k) #randomly select k integers from 1 to the length of the data.
-centroid_points = USArrests_scaled[centroids,] %>% as.matrix() #use the selected integers as indices and select for them in the data frame. 
+centroid_points = USArrests_scaled[centroids,] %>% as.matrix() #use the selected integers as indices and select for them in the data frame.
 centroid_points
 ```
 
-    ##                 Murder    Assault  UrbanPop       Rape
-    ## Connecticut -1.0304190 -0.7290821 0.7917228 -1.0817408
-    ## Oregon      -0.6630682 -0.1411127 0.1008652  0.8613783
+    ##               Murder    Assault   UrbanPop      Rape
+    ## Oregon    -0.6630682 -0.1411127  0.1008652 0.8613783
+    ## Tennessee  1.2425641  0.2068693 -0.4518209 0.6051428
 
 Next, we use a distance metric to compare the observation and the
 centroids. This will result in a matrix that gauges dissimilarity.
@@ -134,10 +130,12 @@ Observations that are further apart from the centroid and less likely to
 be part of that cluster. Choice of distance metric will affect the
 formation of the clusters. Here we choose the Euclidean distance:
 
-$d\_{euc}(x,y) = \\sqrt{\\Sigma\_{i=1}^{n}(x\_i-y\_i)^2}$
+$$d_{euc}(x,y) =\sqrt{\Sigma_{i=1}^{n}(x_i-y_i)^2}$$
 
--   *n* is the number of observations
--   *y*<sub>*i*</sub> is the value of the centroid
+
+ - $n$ is the number of observations
+
+ - $y_i$ is the value of the centroid
 
 ``` r
 dataPoints <- as.matrix( USArrests_scaled)
@@ -152,13 +150,13 @@ for (j in 1:k)
 head(dist_mat)
 ```
 
-    ##          [,1]     [,2]
-    ## [1,] 3.215297 2.370568
-    ## [2,] 4.739912 2.699070
-    ## [3,] 3.262858 2.000866
-    ## [4,] 2.607639 1.847763
-    ## [5,] 4.066390 2.657402
-    ## [6,] 3.327992 1.533198
+    ##          [,1]      [,2]
+    ## [1,] 2.370568 0.8407489
+    ## [2,] 2.699070 2.3362541
+    ## [3,] 2.000866 2.2989846
+    ## [4,] 1.847763 1.4254486
+    ## [5,] 2.657402 3.0119267
+    ## [6,] 1.533198 2.1972111
 
 The cluster for each observation is chosen by the centroid with the
 smallest distance to the observation. We can use the `which.min()`
@@ -169,20 +167,22 @@ cluster = factor(apply(dist_mat, 1, which.min)) #selects the column index with t
 head(cluster)
 ```
 
-    ## [1] 2 2 2 2 2 2
+    ## [1] 2 2 1 2 1 1
     ## Levels: 1 2
 
 Recall that we are minimizing the squared Euclidean distances between
 the observation and the assigned centroid. This is also the
 within-cluster sum of squares (WCSS).
 
-*W*(*C*<sub>*k*</sub>) = *Σ*<sub>*x*<sub>*i*</sub> ∈ *C*<sub>*k*</sub></sub>(*x*<sub>*i*</sub> − *μ*<sub>*k*</sub>)<sup>2</sup>
+$$W(C_k) =\Sigma_{x_i\in C_k}(x_i-\mu_k)^2$$
 
-We define a total within-cluster sum of squares (total\_WCSS) which
+
+We define a total within-cluster sum of squares (total_WCSS) which
 measures the compactness of the clustering. Minimizing this value
 results in tighter clusters.
 
-*t**o**t**a**l**W**C**S**S* = *Σ*<sub>*k* = 1</sub><sup>*k*</sup>*W*(*C*<sub>*k*</sub>) = *Σ*<sub>*k* = 1</sub><sup>*k*</sup>*Σ*<sub>*x*<sub>*i*</sub> ∈ *C*<sub>*k*</sub></sub>(*x*<sub>*i*</sub> − *μ*<sub>*k*</sub>)<sup>2</sup>
+$$totalWCSS =\Sigma^k_{k=1}W(C_k) =\Sigma^k_{k=1}\Sigma_{x_i\in C_k}(x_i-\mu_k)^2$$
+
 
 ``` r
 dist_mat_cluster <- list()
@@ -201,15 +201,15 @@ cat('Within-cluster sum of squares:')
 within_cluster_ss
 ```
 
-    ## [1]  55.59548 150.75137
+    ## [1] 133.74617  54.87014
 
 ``` r
 total_WCSS = sum(within_cluster_ss)
 cat('\nTotal within-cluster sum of squares:', total_WCSS)
 ```
 
-    ## 
-    ## Total within-cluster sum of squares: 206.3468
+    ##
+    ## Total within-cluster sum of squares: 188.6163
 
 Using the PCA graph, we can observe how our clusters look and where the
 initial centroids are located.
@@ -220,21 +220,21 @@ pca_USArrests_df <- as.data.frame(pca_USArrests$x) %>%
   cbind(States = rownames(USArrests)) %>%
   cbind(Clusters = cluster)
 
-centroid_points_unscaled <- apply(centroid_points, 1,  function(x) 
+centroid_points_unscaled <- apply(centroid_points, 1,  function(x)
   { x * pca_USArrests$scale + pca_USArrests$center}) %>% t()
 rownames(centroid_points_unscaled) <- c(1:k)
 
 centroid_coord <- predict(pca_USArrests, centroid_points_unscaled) %>% as.data.frame() # adding the centroid coordinates
 
-ggplot(pca_USArrests_df, aes(x = PC1, y = PC2,)) + 
+ggplot(pca_USArrests_df, aes(x = PC1, y = PC2,)) +
   geom_text(aes(label = States, color = Clusters)) + # labeling the centroids
   geom_point(data =  centroid_coord,
-             mapping =  aes(x = PC1, y = PC2,  color = rownames(centroid_coord)), 
-             size = 3)  + 
+             mapping =  aes(x = PC1, y = PC2,  color = rownames(centroid_coord)),
+             size = 3)  +
   theme_classic()
 ```
 
-![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![]({{ site.baseurl }}/images/k_means/unnamed-chunk-8-1.png)
 
 As you can see, the clustering is not that great since we have only
 initialized the algorithm and had randomly selected `k` observations as
@@ -246,7 +246,7 @@ We can generate new centroid values by taking the mean of all values of
 each observations that are part of the cluster
 
 ``` r
-new_centroid = USArrests_scaled %>% 
+new_centroid = USArrests_scaled %>%
   as.data.frame() %>%
   cbind(Clusters = cluster) %>%
   group_by(Clusters) %>%
@@ -257,15 +257,14 @@ new_centroid
     ## # A tibble: 2 × 5
     ##   Clusters Murder Assault UrbanPop   Rape
     ##   <fct>     <dbl>   <dbl>    <dbl>  <dbl>
-    ## 1 1        -0.905  -0.849  -0.154  -0.868
-    ## 2 2         0.555   0.520   0.0942  0.532
+    ## 1 1        -0.629  -0.517   0.0620 -0.328
+    ## 2 2         1.12    0.919  -0.110   0.584
 
 ``` r
 centroid_points = new_centroid[,-1] %>% as.matrix()
 ```
 
-Creating a k-means function
----------------------------
+## Creating a k-means function
 
 Rather than repeating the code over and over, we can write a function
 that will do it for us.
@@ -276,10 +275,10 @@ k_means_ <- function(df, k, iters){
   centroids = sample.int(dim(df)[1], k)
   centroid_points = df[centroids,] %>% as.matrix()
   dataPoints <- as.matrix(df)
-  
+
   #initialize WCSS
   within_cluster_ss <- c()
-  
+
   for (i in 1:iters){
     dist_mat <- matrix(0, nrow = nrow(dataPoints), ncol = k)
     for (j in 1:k)
@@ -289,18 +288,18 @@ k_means_ <- function(df, k, iters){
         dist_mat[i,j] = sqrt(sum((dataPoints[i,1:ncol(dataPoints)] - centroid_points[j,1:ncol(centroid_points)])^2))
         }
       }
-    
+
     cluster = factor(apply(dist_mat, 1, which.min))
     dist_mat_cluster <- list()
     for(i in 1:k){
       dist_mat_cluster[[i]] <- dist_mat[which(cluster == i),i]^2
     }
-    
+
     within_cluster_ss_temp <- unlist(lapply(dist_mat_cluster, sum))
     within_cluster_ss <- append(within_cluster_ss, within_cluster_ss_temp)
-  
-    
-    new_centroid = df %>% 
+
+
+    new_centroid = df %>%
     as.data.frame() %>%
     cbind(Clusters = cluster) %>%
     group_by(Clusters) %>%
@@ -308,7 +307,7 @@ k_means_ <- function(df, k, iters){
     centroid_points = new_centroid[,-1] %>% as.matrix()
   }
   within_cluster_ss <- t(array(within_cluster_ss, dim = c(k, iters)))
-  return(list(Cluster = cluster , 
+  return(list(Cluster = cluster,
               WCSS = within_cluster_ss))
 }
 ```
@@ -329,14 +328,14 @@ k_means
     ##  [1] 2 2 2 1 2 2 1 1 2 2 1 1 2 1 1 1 1 2 1 2 1 2 1 2 2 1 1 2 1 1 2 2 2 1 1 1 1 1
     ## [39] 1 2 1 2 2 1 1 1 1 1 1 1
     ## Levels: 1 2
-    ## 
+    ##
     ## $WCSS
     ##            [,1]     [,2]
-    ##  [1,] 310.30687 50.49129
-    ##  [2,] 125.82013 39.90895
-    ##  [3,] 105.23072 54.92809
-    ##  [4,]  99.52360 46.78045
-    ##  [5,]  62.84158 53.38683
+    ##  [1,] 147.75655 82.14443
+    ##  [2,]  64.39358 50.06885
+    ##  [3,]  56.22017 46.82608
+    ##  [4,]  56.11445 46.74796
+    ##  [5,]  56.11445 46.74796
     ##  [6,]  56.11445 46.74796
     ##  [7,]  56.11445 46.74796
     ##  [8,]  56.11445 46.74796
@@ -346,16 +345,16 @@ k_means
 The total WCSS is minimized after reaching the maximum iterations.
 
 ``` r
-df <- rowSums(k_means$WCSS) %>% 
+df <- rowSums(k_means$WCSS) %>%
   as.data.frame() %>%
-  cbind(iter = c(1:iters)) 
+  cbind(iter = c(1:iters))
 
-ggplot(df, aes(y = ., x = iter)) + 
-  geom_line() + labs(x = 'Iteration', y =  'Total WCSS') + 
+ggplot(df, aes(y =., x = iter)) +
+  geom_line() + labs(x = 'Iteration', y =  'Total WCSS') +
   theme_classic()
 ```
 
-![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-12-1.png)
+![]({{ site.baseurl }}/images/k_means/unnamed-chunk-12-1.png)
 
 Using the PCA graph, we can observe how our clusters look after reaching
 the maximum number of iterations.
@@ -366,12 +365,12 @@ pca_USArrests_df <- as.data.frame(pca_USArrests$x) %>%
   cbind(States = rownames(USArrests)) %>%
   cbind(Clusters = k_means$Cluster)
 
-ggplot(pca_USArrests_df, aes(x = PC1, y = PC2)) + 
-  geom_text(aes(label = States, color = Clusters))  + 
+ggplot(pca_USArrests_df, aes(x = PC1, y = PC2)) +
+  geom_text(aes(label = States, color = Clusters))  +
   theme_classic()
 ```
 
-![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-13-1.png)
+![]({{ site.baseurl }}/images/k_means/unnamed-chunk-13-1.png)
 
 We can also observe the clustering with a scatter plot of two features
 like `UrbanPop` and `Murder`.
@@ -382,15 +381,14 @@ USArrests_df <- USArrests_scaled %>%
   cbind(States = rownames(USArrests)) %>%
   cbind(Clusters = k_means$Cluster)
 
-ggplot(USArrests_df, aes(x = UrbanPop, y = Murder,)) + 
-  geom_text(aes(label = States, color = Clusters)) + 
+ggplot(USArrests_df, aes(x = UrbanPop, y = Murder,)) +
+  geom_text(aes(label = States, color = Clusters)) +
   theme_classic()
 ```
 
-![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-14-1.png)
+![]({{ site.baseurl }}/images/k_means/unnamed-chunk-14-1.png)
 
-Determining the optimal number of clusters
-------------------------------------------
+## Determining the optimal number of clusters
 
 Initially, we looked at 2 possible clusters. We can test out different
 numbers for `k`. Let’s repeat the process but with 2,3,4, and 5
@@ -406,13 +404,13 @@ cluster_list_df <- do.call(cbind, cluster_list)
 pca_USArrests_df <- as.data.frame(pca_USArrests$x) %>%
   dplyr::select(PC1, PC2) %>%
   cbind(States = rownames(USArrests)) %>%
-  cbind(cluster_list_df) %>% 
+  cbind(cluster_list_df) %>%
   pivot_longer(cols = names(cluster_list))
 
-ggplot(pca_USArrests_df, aes(x = PC1, y = PC2 )) + geom_point(aes(shape = factor(value), color = factor(value)) ) + facet_wrap(~name) + labs(color  = "Cluster", shape = "Cluster") 
+ggplot(pca_USArrests_df, aes(x = PC1, y = PC2)) + geom_point(aes(shape = factor(value), color = factor(value))) + facet_wrap(~name) + labs(color  = "Cluster", shape = "Cluster")
 ```
 
-![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-15-1.png)
+![]({{ site.baseurl }}/images/k_means/unnamed-chunk-15-1.png)
 
 Of course we can continue testing additional values of `k`. However, it
 may be more advantageous to determine the optimal `k` value based on the
@@ -435,15 +433,15 @@ total_WCSS_list <- lapply(WCSS_list, sum)
 
 df <- data.frame(Y = unlist(total_WCSS_list), X = c(1:10))
 
-ggplot(df, aes(x = X, y = Y)) + 
-  geom_line() + 
-  geom_point() + 
-  labs(x = 'k clusters', y = 'Total WCSS') + 
-  scale_x_continuous(breaks = c(1:10)) + 
+ggplot(df, aes(x = X, y = Y)) +
+  geom_line() +
+  geom_point() +
+  labs(x = 'k clusters', y = 'Total WCSS') +
+  scale_x_continuous(breaks = c(1:10)) +
   theme_classic()
 ```
 
-![]({{ site.baseurl }}/images/k_means_files/figure-markdown_github/unnamed-chunk-16-1.png)
+![]({{ site.baseurl }}/images/k_means/unnamed-chunk-16-1.png)
 
 The optimal `k` look to be either 4 or 5. As you can see, k-means
 clustering is simple and quick. One caveat is choosing the number of
@@ -452,8 +450,7 @@ slow down the algorithm in very large data sets. One possible
 improvement is to generate different initial centroids and select the
 set that has the smallest total within-cluster sum of squares.
 
-Additional resources
-====================
+# Additional resources
 
 -   [K-means from Scratch
     R](https://www.section.io/engineering-education/k-means-from-scratch-r/)
