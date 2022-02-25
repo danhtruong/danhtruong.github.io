@@ -57,7 +57,13 @@ To solve this, we can add HTML tags prior to the knitr conversion, where
 knitr will not touch the equations, and then remove them later so that
 MathJax can parse them. I found a
 [script](https://gist.github.com/emanuelhuber/11835e6840868029d7c4721b7f7bf465)
-that can do just that. I have modified it below. You can download it
+that can do just that. It will look like this with tags prior to markdown conversion.
+
+``` js
+<pre>$$ y = mx + b $$</pre>
+```
+
+I have modified the script below. You can download it
 [here](https://github.com/danhtruong/danhtruong.github.io/blob/master/assets/files/r2jekyll.R).
 
 ``` r
@@ -143,6 +149,5 @@ MathJax = {
 
 ## Additional Resources
 
--   [https://tinyheero.github.io/2015/12/06/rmd-to-jekyll-protect-eqn.html](R
-    Markdown to Jekyll: “Protecting” Your Math Equations)
--   [https://www.mathjax.org](MathJax)
+-   [R Markdown to Jekyll: “Protecting” Your Math Equations]([https://tinyheero.github.io/2015/12/06/rmd-to-jekyll-protect-eqn.html])
+-   [MathJax](https://www.mathjax.org)
