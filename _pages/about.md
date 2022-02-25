@@ -56,6 +56,75 @@ __IFER Graduate Fellowship__ International Foundation for Ethical Research
 `2014-2018` 
 __Dean's Fellow__ ASU Dean's Fellowship
 
+## Selected Publications   
+<div class="pub-list-item" style="margin-bottom: 1rem">
+<span itemprop="author">
+<strong>Truong, D. D.</strong> et.al</span>.
+  <a href="https://www.biorxiv.org/content/10.1101/2022.01.21.476982v1" itemprop="name" target="_blank">
+    Dissociation protocols used for sarcoma tissues bias the transcriptome observed in single-cell and single-nucleus RNA sequencing</a>.
+  In <em>bioRxiv</em>,  2022.
+</div>
+
+<div class="pub-list-item" style="margin-bottom: 1rem">
+<span itemprop="author">
+<strong>Truong, D. D.</strong>, Kratz, A., Park, J. G., Barrientos, E. S. et.al</span>.
+  <a href="https://doi.org/10.1158/0008-5472.CAN-18-2293" itemprop="name" target="_blank">
+    A human organotypic microfluidic tumor model permits investigation of the interplay between patient-derived fibroblasts and breast cancer cells</a>.
+  In <em>Cancer Research</em>,  2019.
+</div>
+
+<div class="pub-list-item" style="margin-bottom: 1rem">
+<span itemprop="author">
+<strong>Truong, D. D.</strong>, Fiorelli, R.,  Barrientos, E. S. et.al</span>.
+  <a href="https://doi.org/10.1016/j.biomaterials.2018.07.048" itemprop="name" target="_blank">
+    A three-dimensional (3D) organotypic microfluidic model for glioma stem cells–Vascular interactions</a>.
+  In <em>Biomaterials</em>,  2019.
+</div>
+
+<div class="pub-list-item" style="margin-bottom: 1rem">
+<span itemprop="author">
+Nagaraju, S.*, <strong>Truong, D.D.</strong>* et.al</span>.
+  <a href="https://doi.org/10.1002/adhm.201701257" itemprop="name" target="_blank">
+    Microfluidic tumor–vascular model to study breast cancer cell invasion and intravasation</a>.
+  In <em>Advanced healthcare materials</em>,  2018.
+</div>
+
+<div class="pub-list-item" style="margin-bottom: 1rem">
+<span itemprop="author">
+Peela, N.* ,<strong>Truong, D. D.</strong>*, Saini, H.* et.al</span>.
+  <a href="https://doi.org/10.1016/j.biomaterials.2017.04.017" itemprop="name" target="_blank">
+    Advanced biomaterials and microengineering technologies to recapitulate the stepwise process of cancer metastasis</a>.
+  In <em>Biomaterials</em>,  2017.
+</div>
+
+<div class="pub-list-item" style="margin-bottom: 1rem">
+<span itemprop="author">
+<strong>Truong, D. D.</strong>, Puleo, J. et.al</span>.
+  <a href="https://www.nature.com/articles/srep34094" itemprop="name" target="_blank">
+    A Breast cancer cell invasion into a three dimensional tumor-stroma microenvironment</a>.
+  In <em>Scientific Reports</em>,  2016.
+</div>
+   
+## Other Activities 
+<table class="alternate_color">
+  <tr>
+    <td><a href="https://github.com/danhtruong/Get-started-with-R-for-Biologists" target="_blank">Get-started-with-R-for-Biologists</a></td>
+    <td>This repository contains resources on getting started with R for biologists. R is a language and environment for statistical computing and graphics. It is widely used for a variety of statistical analysis (i.e., linear and nonlinear modeling, classical statistical tests, clustering, etc.). R is freely available and has a large collection of developed packages of different tools.</td>
+  </tr>
+  <tr>
+    <td><a href="https://canvas.mdanderson.org/courses/1585" target="_blank"> 11th Annual Postdoctoral Science Symposium</a></td>
+    <td>The Annual Postdoctoral Science Symposium provides a platform for postdoctoral fellows in the Texas Medical Center to present their current research in the areas of basic and translational research and features presentations and hosts interactive sessions facilitated by experts in a variety of fields.</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.project-short.com" target="_blank">Project SHORT</a></td>
+    <td>Comprised of volunteer professional health and graduate students, residents, faculty, and post-docs, Project SHORT (Students for Higher-Ed Opportunities and Representation in Training) is the first organization to offer pro-bono mentoring for both professional health and graduate school admissions.</td>
+  </tr>
+  <tr>
+    <td><a href="https://whova.com/web/apcs_202010" target="_blank"> 2021 Annual Postdoctoral Career Symposium</a></td>
+    <td>The Annual Postdoctoral Career Symposium (APCS) is designed and run by postdocs to help postdocs and those finishing grad school to seek out the career options that appeal to them most, and in some cases open up doors that we might not have known existed.</td>
+  </tr>
+</table>
+
 ## Contact me
 
 [dtruong4@mdanderson.org](mailto:dtruong4@mdanderson.org)
