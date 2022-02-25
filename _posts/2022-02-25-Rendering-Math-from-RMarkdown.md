@@ -116,7 +116,7 @@ unlink(tempfile)
 ```
 
 Place the script in the same folder as your R markdown file. Then run
-the following:
+the following in your terminal:
 
 ``` bash
 Rscript --vanilla r2jekyll.R your_RMarkdownFile.Rmd
@@ -149,5 +149,5 @@ MathJax = {
 
 ## Additional Resources
 
--   [R Markdown to Jekyll: “Protecting” Your Math Equations]([https://tinyheero.github.io/2015/12/06/rmd-to-jekyll-protect-eqn.html])
+-   [R Markdown to Jekyll: “Protecting” Your Math Equations](https://tinyheero.github.io/2015/12/06/rmd-to-jekyll-protect-eqn.html)
 -   [MathJax](https://www.mathjax.org)
