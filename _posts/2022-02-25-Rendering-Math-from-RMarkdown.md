@@ -1,6 +1,7 @@
 ---
 layout: single
 toc: true
+mathjax: true
 title: Rendering Math from RMarkdown
 tags: tutorials  R
 ---
