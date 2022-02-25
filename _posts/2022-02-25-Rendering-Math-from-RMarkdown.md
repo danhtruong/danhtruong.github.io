@@ -119,6 +119,8 @@ Rscript --vanilla r2jekyll.R your_RMarkdownFile.Rmd
 Before running, if you generate output files or figures, make sure to
 add the following to the top of your R markdown notebook.
 
+## Enabling inline math equations
+
 Now, for inline math equations. MathJax does not handle this unless you
 properly
 [configure](https://docs.mathjax.org/en/v2.7-latest/options/preprocessors/tex2jax.html)
