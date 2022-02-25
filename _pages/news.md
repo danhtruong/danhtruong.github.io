@@ -7,8 +7,8 @@ toc: true
 ---
 ## 2022
 __February__
-
- - I joined the [junior editorial board](https://urldefense.com/v3/__https://cdrjournal.com/editorsYouth/index__;!!PfbeBCCAmug!2ZwdODvrAcdmJUJJ2UtWrnr1VZGQSulkqDEdmBIxZ6PRozAxiMs9CP72m1rKQ4sdU40$) of Cancer Drug Resistance. 
+ - I am now listed as an Early-Career Reviewer for [eLife](https://datastudio.google.com/embed/u/0/reporting/7ee3012b-8543-4141-9f8e-03355dbfff55/page/OPij).
+ - I joined the [junior editorial board](https://cdrjournal.com/editorsYouth/index) of Cancer Drug Resistance. 
  
 
 __January__
