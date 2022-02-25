@@ -141,6 +141,6 @@ MathJax = {
 
 ## Additional Resources
 
--   \[<https://tinyheero.github.io/2015/12/06/rmd-to-jekyll-protect-eqn.html>\](R
+-   [https://tinyheero.github.io/2015/12/06/rmd-to-jekyll-protect-eqn.html](R
     Markdown to Jekyll: “Protecting” Your Math Equations)
 -   [https://www.mathjax.org](MathJax)
