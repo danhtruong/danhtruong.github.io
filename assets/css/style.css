@@ -1,4 +1,6 @@
-/* {margin: 0; padding: 0;}
+
+/* width */
+$max-width: 90%;
 
 /* modification for button copy */
 .highlight > pre > div{
