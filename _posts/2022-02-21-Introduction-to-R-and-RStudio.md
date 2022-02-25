@@ -99,9 +99,7 @@ We can view our working directory by using the function `getwd()`
 getwd()
 ```
 
-``` r
-[1] "/Users/dtruong4/Desktop/Intro-to-R"
-```
+    ## [1] "/Users/dtruong4/Desktop/Intro-to-R"
 
 Your working directory will be the location where R will automatically
 look for files. If you want to find files in a different location, you
