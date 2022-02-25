@@ -46,12 +46,12 @@ In R markdown, a typical display equation would be:
 $$ y = mx + b $$
 ```
 
-$$ y = mx + b $$
+*y* = *m**x* + *b*
 
 As you can see, it does not render properly. It should like like the one
 below:
 
-*y* = *m**x* + *b*
+$$ y = mx + b $$
 
 To solve this, we can add HTML tags prior to the knitr conversion, where
 knitr will not touch the equations, and then remove them later so that
