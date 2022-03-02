@@ -1,4 +1,4 @@
-codes = document.querySelectorAll('div.language-r > div > pre.highlight > code, div.language-sh > div > pre.highlight > code');
+codes = document.querySelectorAll('div.language-r > div > pre.highlight > code, div.language-sh > div > pre.highlight > code, , div.language-bash > div > pre.highlight > code, , div.language-js > div > pre.highlight > code');
 countID = 0;
 codes.forEach((code) => {
 
