@@ -6,6 +6,9 @@ author_profile: true
 toc: true
 ---
 ## 2022
+__March__
+ - Our work, [Correlation of nuclear pIGF-1R/IGF-1R and YAP/TAZ in a tissue microarray with outcomes in osteosarcoma patients](https://www.oncotarget.com/article/28215/text/), is now available online. 
+
 __February__
  - Our review, [Targeting the IGF/PI3K/mTOR Pathway and AXL/YAP1/TAZ pathways in Primary Bone Cancer](https://www.sciencedirect.com/science/article/pii/S2212137422000094), is now available online. 
  - I am now listed as an Early-Career Reviewer for [eLife](https://datastudio.google.com/embed/u/0/reporting/7ee3012b-8543-4141-9f8e-03355dbfff55/page/OPij).
