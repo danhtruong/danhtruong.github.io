@@ -6,8 +6,12 @@ author_profile: true
 toc: true
 ---
 ## 2022
+__April__
+ - Our work, [_Multi-site desmoplastic small round cell tumors are genetically related and immune-cold_](https://www.nature.com/articles/s41698-022-00257-9), is now available online. 
+
 __March__
- - Our work, [Correlation of nuclear pIGF-1R/IGF-1R and YAP/TAZ in a tissue microarray with outcomes in osteosarcoma patients](https://www.oncotarget.com/article/28215/text/), is now available online. 
+ - I presented my poster, _Deciphering the Drivers of Dedifferentiation in Well-differentiated and De-differentiated Liposarcoma_, Trainee Research Day 2022.
+ - Our work, [_Correlation of nuclear pIGF-1R/IGF-1R and YAP/TAZ in a tissue microarray with outcomes in osteosarcoma patients_](https://www.oncotarget.com/article/28215/text/), is now available online. 
 
 __February__
  - Our review, [Targeting the IGF/PI3K/mTOR Pathway and AXL/YAP1/TAZ pathways in Primary Bone Cancer](https://www.sciencedirect.com/science/article/pii/S2212137422000094), is now available online. 
