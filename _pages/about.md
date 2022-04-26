@@ -108,6 +108,10 @@ Peela, N.* ,<strong>Truong, D. D.</strong>*, Saini, H.* et.al</span>.
 ## Other Activities 
 <table class="alternate_color">
   <tr>
+    <td><a href="https://github.com/ivanvazquezphd/bc_code" target="_blank">Bioinformatics Café</a></td>
+    <td>This repository contains the Bioinformatics Café series 2022 developed by postdocs a MD Anderson. The series is a great opportunity to build the skills needed to succeed in bioinformatics from the ground up. The workshops will be taught by postdocs with years of experience programming.</td>
+  </tr>
+  <tr>
     <td><a href="https://github.com/danhtruong/Get-started-with-R-for-Biologists" target="_blank">Get-started-with-R-for-Biologists</a></td>
     <td>This repository contains resources on getting started with R for biologists. R is a language and environment for statistical computing and graphics. It is widely used for a variety of statistical analysis (i.e., linear and nonlinear modeling, classical statistical tests, clustering, etc.). R is freely available and has a large collection of developed packages of different tools.</td>
   </tr>
