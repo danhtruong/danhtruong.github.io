@@ -7,6 +7,7 @@ toc: true
 ---
 ## 2022
 __April__
+ - Started the [_2022 “Bioinformatics Café”_](https://github.com/ivanvazquezphd/bc_code) to build the skills needed to succeed in bioinformatics for postdoctoral fellows at MD Anderson. 
  - Our work, [_Multi-site desmoplastic small round cell tumors are genetically related and immune-cold_](https://www.nature.com/articles/s41698-022-00257-9), is now available online. 
 
 __March__
