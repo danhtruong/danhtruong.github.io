@@ -11,6 +11,7 @@ __July__
  - I helped teach summer students how to design an abstract poster for research.
  - I was a judge for Graduate Student Research Day and I helped pick the best poster.
  - I was elected the Team Leader of Events and Outreach for the Postdoctoral Association Executive Committee. 
+
 __June__
  - I participated in the MD Anderson HotStart program to teach cell biology and basic laboratory techniques to high school and undergraduate students from underrepresented and underserved backgrounds, particularly in the Houston area.
  - Our work, [_The androgen receptor is a therapeutic target in desmoplastic small round cell sarcoma_](https://www.nature.com/articles/s41467-022-30710-z), is now available online. 
