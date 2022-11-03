@@ -6,6 +6,12 @@ author_profile: true
 toc: true
 ---
 ## 2022
+__October__
+ - I am presenting our work, [_Unraveling the Biology of Desmoplastic Small Round Cell Tumor_](https://openworks.mdanderson.org/leading-edge/17/), at the Leading Edge of Cancer Research Symposium 2022.
+
+__August__
+ - I was invited onto the SHORT Talks podcast! The topic of the episode was ["SHORT Talk About PhD Application Mistakes."](https://open.spotify.com/episode/0doFYjZxxEjYHFeLodofuV?si=E5bQnCtaTwWGGi9a58si9A)
+
 __July__
  - I presented our work, _The Androgen Receptor is a Therapeutic Target in Desmoplastic Small Round Cell Tumor_, for the Experiemental Therapeutics Postdoc Seminar. 
  - I helped teach summer students how to design an abstract poster for research.
