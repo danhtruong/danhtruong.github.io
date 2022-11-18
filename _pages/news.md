@@ -6,6 +6,11 @@ author_profile: true
 toc: true
 ---
 ## 2022
+__November__
+ - I presented our work, _The Epigenetic Impact and Therapeutic Opportunity of AR-Directed Therapy for DSRCT_, at Connective Tissue Oncology Society Meeting 2022.
+ - I presented our work, _Defining Differentiation States in Well-Differentiated and De-Differentiated Liposarcoma_, at Connective Tissue Oncology Society Meeting 2022.
+ - We received funding for a St. Baldrick’s Foundation Research Grant award to MD Anderson Cancer Center to support our research project, “_Ewing sarcoma gene dependencies that regalute cell fate / differentiation._”
+
 __October__
  - I am presenting our work, [_Unraveling the Biology of Desmoplastic Small Round Cell Tumor_](https://openworks.mdanderson.org/leading-edge/17/), at the Leading Edge of Cancer Research Symposium 2022.
 
