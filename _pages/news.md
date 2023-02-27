@@ -5,6 +5,12 @@ layout: single
 author_profile: true
 toc: true
 ---
+
+## 2023
+__February__
+ - I presented our work, _Understanding Ewing Sarcoma Cell Fate_, at the Experimental Therapuetics Postdoctoral Seminar.
+ - I was awarded the Scholar-in-Training Award to travel to the AACR Annual Meeting 2023. 
+
 ## 2022
 __November__
  - I presented our work, _The Epigenetic Impact and Therapeutic Opportunity of AR-Directed Therapy for DSRCT_, at Connective Tissue Oncology Society Meeting 2022.
