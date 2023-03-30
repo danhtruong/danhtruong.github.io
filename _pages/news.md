@@ -7,6 +7,11 @@ toc: true
 ---
 
 ## 2023
+__March__
+ - I presented our work, _The Epigenetic Impact and Therapeutic Opportunity of AR-Directed Therapy for DSRCT_, at the AACR Special Conference: Advances in Prostate Cancer Research
+ - I presented our works, _The Epigenetic Impact and Therapeutic Opportunity of AR-Directed Therapy for DSRCT_ and _Understanding Ewing Sarcoma Cell Fate_, at Trainee Research Day at MD Anderson. 
+ - I went to AACR Early-career Hill Day in Washington D.C. to advocate for funding for cancer research and biomedical science through the National Institutes of Health (NIH) and the National Cancer Institute (NCI).
+
 __February__
  - I presented our work, _Understanding Ewing Sarcoma Cell Fate_, at the Experimental Therapuetics Postdoctoral Seminar.
  - I was awarded the Scholar-in-Training Award to travel to the AACR Annual Meeting 2023. 
