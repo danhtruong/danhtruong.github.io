@@ -7,6 +7,9 @@ toc: true
 ---
 
 ## 2023
+__April__
+ - Our work in DSRCT was highlighted in [MD Anderson Research Highlights](https://www.mdanderson.org/newsroom/md-anderson-research-highlights-aacr-2023-special-edition.h00-159617856.html).
+
 __March__
  - I presented our work, _The Epigenetic Impact and Therapeutic Opportunity of AR-Directed Therapy for DSRCT_, at the AACR Special Conference: Advances in Prostate Cancer Research
  - I presented our works, _The Epigenetic Impact and Therapeutic Opportunity of AR-Directed Therapy for DSRCT_ and _Understanding Ewing Sarcoma Cell Fate_, at Trainee Research Day at MD Anderson. 
