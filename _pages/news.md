@@ -7,7 +7,14 @@ toc: true
 ---
 
 ## 2023
+
+__May__
+ - I was awarded the SARC Career Development Award to continue my studies on DSRCT.
+
 __April__
+ - I presented our work, _The Epigenetic Impact and Therapeutic Opportunity of AR-Directed Therapy for DSRCT_, at the 2023 AACR Annual Meeting
+ - I presented our work, _Defining Differentiation States in Well-Differentiated and De-Differentiated Liposarcoma_,  at the 2023 AACR Annual Meeting
+ - We were awarded funding for our CDMRP proposal from the DOD to study DSRCT.
  - Our work in DSRCT was highlighted in [MD Anderson Research Highlights](https://www.mdanderson.org/newsroom/md-anderson-research-highlights-aacr-2023-special-edition.h00-159617856.html).
 
 __March__
