@@ -35,6 +35,18 @@ __University of Texas at Arlington & University of Texas Southwestern Medical Ce
 __University of Texas at Arlington__ BSc Biology 
 
 ## Awards and Honors
+`2023`
+__Daniel Benedict Gazan Fellowship in Sarcoma Research__ MD Anderson Cancer Center
+
+`2023`
+__Research Grant__ Sarcoma Foundation of America
+
+`2023`
+__SARC Career Development Award__ SARC
+
+`2023`
+__Scholar-in-Training Award__ AACR 
+
 `2021`
 __Daniel Benedict Gazan Award in Sarcoma Research__ MD Anderson Cancer Center
 
@@ -60,9 +72,17 @@ __Dean's Fellow__ ASU Dean's Fellowship
 <div class="pub-list-item" style="margin-bottom: 1rem">
 <span itemprop="author">
 <strong>Truong, D. D.</strong> et.al</span>.
-  <a href="https://www.biorxiv.org/content/10.1101/2022.01.21.476982v1" itemprop="name" target="_blank">
+  <a href="https://bmccancer.biomedcentral.com/articles/10.1186/s12885-023-10977-1" itemprop="name" target="_blank">
     Dissociation protocols used for sarcoma tissues bias the transcriptome observed in single-cell and single-nucleus RNA sequencing</a>.
-  In <em>bioRxiv</em>,  2022.
+  In <em>BMC Cancer</em>,  2023.
+</div>
+
+<div class="pub-list-item" style="margin-bottom: 1rem">
+<span itemprop="author">
+Lamhamedi-Cherradi S.E. et.al</span>.
+  <a href="https://www.nature.com/articles/s41467-022-30710-z" itemprop="name" target="_blank">
+    The androgen receptor is a therapeutic target in desmoplastic small round cell sarcoma</a>.
+  In <em>Nature Communications</em>,  2022.
 </div>
 
 <div class="pub-list-item" style="margin-bottom: 1rem">
