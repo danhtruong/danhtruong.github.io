@@ -10,11 +10,13 @@ author_profile: true
 
 Biomedical Engineering PhD 
 
-I am a postdoctoral fellow at UT MD Anderson Cancer Center. I study mesenchymal tissue differentiation as a model for understanding the plasticity of soft tissue sarcomas and bone sarcomas. My research interests are cancer biology, phenotypic plasticity, and machine learning. My favorite book series is the The Expanse but I also love The Lord of the Rings and The Legend of Drizzt series. 
+I am an Instructor at UT MD Anderson Cancer Center. I study mesenchymal tissue differentiation as a model for understanding the plasticity of soft tissue sarcomas and bone sarcomas. My research interests are cancer biology, phenotypic plasticity, and machine learning. My favorite book series is the The Expanse but I also love The Lord of the Rings and The Legend of Drizzt series. 
 
 ## Experience
+`2023-Present` 
+__MD Anderson__ Instructor (Sarcoma Medical Oncology)
 
-`2019-` 
+`2019-2023` 
 __MD Anderson__ Post Doctoral Fellow (Sarcoma Medical Oncology)
 
 `2014-2018` 
