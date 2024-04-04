@@ -5,8 +5,21 @@ layout: single
 author_profile: true
 toc: true
 ---
+## 2024
+__April__
+ - I was awarded an Investigator Award from the [Rally Foundation](https://rallyfoundation.org/rally-foundation-awards-5m-for-a-record-number-of-grants-to-74-childhood-cancer-researchers/).
+ - I presented, _Detection of Intratumoral Heterogeneity of Sarcoma by ATAC-Seq_, at the [Spring CTOS Webinar](https://www.ctos.org/EducationalPrograms/2024SpringCTOSWebinar.aspx).
+
+__February__
+ - We were awarded funding for our CPRIT proposal to study DSRCT.
 
 ## 2023
+__November__
+ - I presented two posters at CTOS this year, _Multi-Omic Analysis of Desmoplastic Small Round Cell Tumors Reveal Distinct Lineages_ and _Understanding the Molecular Drivers That Regulate Ewing Sarcoma Cell Fate_.
+ - I was awarded the best poster for the catergory of Sarcoma of the Year: Small Round Blue Cell Tumor.
+
+__July__
+ - I was awarded a research grant from the [Sarcoma Foundation of America](https://www.curesarcoma.org/grant/omic-characterization-of-dsrct-and-establishing-the-role-of-fibroblasts/).
 
 __June__
  - I was announced as the [SARC Career Development Award winner](https://sarctrials.org/2023-cda-award-winner-announced/).
