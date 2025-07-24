@@ -10,10 +10,13 @@ author_profile: true
 
 Biomedical Engineering PhD 
 
-I am an Instructor at UT MD Anderson Cancer Center. I study mesenchymal tissue differentiation as a model for understanding the plasticity of soft tissue sarcomas and bone sarcomas. My research interests are cancer biology, phenotypic plasticity, and machine learning. My favorite book series is the The Expanse but I also love The Lord of the Rings and The Legend of Drizzt series. 
+I’m an Assistant Professor at UT MD Anderson Cancer Center, where I investigate mesenchymal tissue differentiation as a framework for understanding the phenotypic plasticity of soft tissue and bone sarcomas. My research interests span cancer biology, cellular reprogramming, and the application of machine learning to uncover hidden patterns in tumor behavior. Outside the lab, I’m an avid reader—my favorite book series is The Expanse, though I also deeply enjoy The Lord of the Rings and The Legend of Drizzt for their rich world-building and character depth.
 
 ## Experience
-`2023-Present` 
+`2025-Present` 
+__MD Anderson__ Assistant Professor (Sarcoma Medical Oncology)
+
+`2023-2025` 
 __MD Anderson__ Instructor (Sarcoma Medical Oncology)
 
 `2019-2023` 
