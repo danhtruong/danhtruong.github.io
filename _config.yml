@@ -105,13 +105,16 @@ analytics:
 author:
   name             : "Danh Truong"
   avatar           : "/images/170510-Danh-Truong-SL-0004.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Instructor at MD Anderson Cancer Center"
+  bio              : "Assistant Professor at MD Anderson Cancer Center"
   location         : "Houston, Texas"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:dtruong4@mdanderson.org"
+    - label: "Faculty Page"
+      icon: "fab fa-fw fa-home"
+      url: "https://faculty.mdanderson.org/profiles/danh_truong.html"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/ddtruong"
@@ -128,6 +131,9 @@ footer:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:dtruong4@mdanderson.org"
+    - label: "Faculty Page"
+      icon: "fab fa-fw fa-home"
+      url: "https://faculty.mdanderson.org/profiles/danh_truong.html"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/ddtruong"
